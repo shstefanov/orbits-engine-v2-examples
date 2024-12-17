@@ -3,3 +3,64 @@ html, body, #root {
     width: 100%;
     height: 100%
 }
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.layout > .navigation {
+    flex-basis: 250px;
+    height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.layout > .navigation > a {
+    display:         block;
+    text-decoration: none;
+}
+
+.layout > .content {
+    height: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    position: relative;
+    color: white;
+}
+
+.layout > .content > * {
+    position: absolute;
+}
+
+
+a.source-code-link {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px 5px;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+canvas {
+    z-index: 0;
+}
+
+canvas ~ * {
+    z-index: 1;
+}
+
+h1 {
+    width: 100%;
+    font-size: 18px;
+    top: 10px;
+    text-align: center;
+}
