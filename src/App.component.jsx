@@ -7,8 +7,12 @@ import CommonScene    from "./common/CommonScene";
 import CommonCamera   from "./common/CommonCamera";
 import CommonContent  from "./common/CommonContent";
 
-import Homepage              from "examples/Homepage.jsx";
-import OrbitsRendererExample from "examples/OrbitsRendererExample.jsx";
+import Homepage                  from "examples/Homepage.jsx";
+import OrbitsRendererExample     from "examples/OrbitsRendererExample.jsx";
+import OrbitsSceneExample        from "examples/OrbitsSceneExample.jsx";
+
+import PerspectiveCameraExample  from "examples/PerspectiveCameraExample.jsx";
+import OrthographicCameraExample from "examples/OrthographicCameraExample.jsx";
 
 import Layout from "./Layout.jsx";
 
@@ -47,13 +51,22 @@ export default function App(){
             { path: "/", element: <Layout navigation={<>
 
                 Renderer
-                    <Link to="/"               >Home           </Link>
-                    <Link to="/OrbitsRenderer" >OrbitsRenderer </Link>
+                    <Link to="/"                   > Home                </Link>
+                    <hr></hr>
+                    <Link to="/OrbitsRenderer"     > OrbitsRenderer      </Link>
+                    <hr></hr>
+                    <Link to="/OrbitsScene"        > OrbitsScene         </Link>
+                    <hr></hr>
+                    <Link to="/PerspectiveCamera"  > Perspective Camera  </Link>
+                    <Link to="/OrthographicCamera" > Orthographic Camera </Link>
                 <hr />
             
             </>}> <Outlet /> </Layout>, children: toRouter({
-                "":                <Combine { ...({         name: "Homepage",              Content:  Homepage              }) } />,
-                "/OrbitsRenderer": <Combine { ...defaults({ name: "OrbitsRendererExample", Renderer: OrbitsRendererExample }) } />,
+                "":                    <Combine { ...({         name: "Homepage",                  Content:  Homepage                  }) } />,
+                "/OrbitsRenderer":     <Combine { ...defaults({ name: "OrbitsRendererExample",     Renderer: OrbitsRendererExample     }) } />,
+                "/OrbitsScene":        <Combine { ...defaults({ name: "OrbitsRendererExample",     Scene:    OrbitsSceneExample        }) } />,
+                "/PerspectiveCamera":  <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample  }) } />,
+                "/OrthographicCamera": <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample }) } />,
             })}
         ])} />
         

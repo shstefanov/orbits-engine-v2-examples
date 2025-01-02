@@ -9,7 +9,7 @@
     "start": "npm-run-all --parallel serve start-dev",
     "prestart": "touch ./src/node_modules && rm ./src/node_modules && ln -s $(pwd)/src ./src/node_modules && npm run show-entries",
     "test": "mocha -b -p --recursive --bail --extension spec.js -- ",
-    "serve": "servor public index.html 3101",
+    "serve": "servor public index.html ${ORBITS_ENGINE_EXAMPLES_PORT:-3000}",
     "links": "npm link $(cat links.txt) || echo No local projects to link"
   },
   "dependencies": {

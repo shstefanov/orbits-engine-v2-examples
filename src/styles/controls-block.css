@@ -1,0 +1,23 @@
+
+
+
+
+
+
+.controls-block {
+    position: absolute;
+    /* width: 200px; */
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.controls-block > p {
+    width: 100%;
+}

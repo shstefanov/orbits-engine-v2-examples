@@ -1,7 +1,7 @@
 import React from "react";
 import { OrbitsScene } from "@orbits/engine";
 
-export default function CommonScene({children}){
+export default function OrbitsSceneExample({children}){
 
     return <OrbitsScene
         

@@ -1,13 +1,20 @@
-import React, { Children } from "react";
+import React from "react";
 
-import { OrbitsRenderer, OrbitsScene } from "@orbits/engine";
+import { OrbitsRenderer } from "@orbits/engine";
 
 
 export default function OrbitsRendererExample({children, hideChildren}){
 
     return <OrbitsRenderer
-        // size={{ width: 800, height: 600 }}
+
         autoresize={true}
+
+        // ClassName for canvas domElement
+        // Ignored when config.canvas is provided
+        className="renderer-canvas-class-name"
+        
+
+        // Using css to manage size and position
         style={{
             position:        "absolute",
             right:           "0px",
@@ -15,6 +22,16 @@ export default function OrbitsRendererExample({children, hideChildren}){
             height:          "100%",
             backgroundColor: "black",
         }}
+
+        config = {{
+            // Constructor options WebGLRenderer
+            // https://threejs.org/docs/?q=WebG#api/en/renderers/WebGLRenderer
+
+            // If reference to canvas domElement is provided here,
+            // className and style will be ignored
+        }}
+
+
     >
 
 
