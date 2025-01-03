@@ -16,6 +16,14 @@ export default function OrbitsSceneExample({children}){
             '/textures/back.png',
         ]}
     >
+
+        <h1>OrbitsScene</h1>
+
+        <a className="source-code-link"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/OrbitsSceneExample.jsx"
+        > &lt;SOURCE&gt; </a>
+
+
         { children }
     </OrbitsScene>;
 }

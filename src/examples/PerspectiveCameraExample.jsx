@@ -23,6 +23,13 @@ export default function PerspectiveCameraExample({children}){
 
         onUpdate = { (props, camera) => setCameraProps(props) }
     >
+
+        <h1>PerspectiveCamera</h1>
+
+        <a className="source-code-link"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/PerspectiveCameraExample.jsx"
+        > &lt;SOURCE&gt; </a>
+
         <div className="controls-block">
 
             <p> Zoom: [{cameraProps.zoom}]

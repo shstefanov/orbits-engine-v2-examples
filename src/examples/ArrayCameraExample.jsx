@@ -1,67 +1,103 @@
 import React, { useState } from "react";
+import * as THREE from "three";
+import { ArrayCamera, PerspectiveCamera, OrthographicCamera, useRenderer } from "@orbits/engine";
 
-import { OrthographicCamera } from "@orbits/engine";
+export default function ArrayCameraExample({children}){
 
-export default function OrthographicCameraExample({children}){
+    const renderer = useRenderer();
+
+    const { width, height } = renderer.actualSize;
+    const halfWidth = width / 2;
+    const halfHeight = height / 2;
 
     const [ cameraProps, setCameraProps ] = useState({
         
-        // left:  (window.innerWidth - 200) / -2,
-        // right: (window.innerWidth - 200) /  2,
-        // top:   (window.innerHeight     ) /  2,
-        // right: (window.innerHeight     ) / -2,
-        zoom: 1, near: 1, far: 10000, up: { x: 0, y: 0, z: -1 },
+        zoom: 1.5, near: 1, far: 10000, fov: 35, up: { x: 0, y: 0, z: 1 },
 
         controlType: "orbit-controls",
             target:       { x:  0, y:  0, z: 0 }, // or follow: "my-character"
-            // distance:     500,
+            distance:     500,
             polarAngle:   0,
             azimuthAngle: 0,
             rotateSpeed:  1,
             panSpeed:     1,
             scrollSpeed:  1,
-    })
+    });
 
-    return <OrthographicCamera
-        { ...cameraProps }
+
+    console.log(renderer.actualSize);
+    const cp = cameraProps;
+
+    return <ArrayCamera
+        
 
         onUpdate = { (props, camera) => setCameraProps(props) }
     >
 
-        <h1>OrthographicCamera</h1>
+        Alabala
+        
+        <PerspectiveCamera 
+            { ...cp } 
+            viewport={ new THREE.Vector4(0, Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) } 
+            onUpdate = { (props, camera) => setCameraProps(props) }
+        />
+        
+        <PerspectiveCamera
+            { ...({...cp, azimuthAngle: cp.azimuthAngle + (Math.PI / 4)}) }
+            viewport={ new THREE.Vector4(Math.floor(halfWidth), Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) }
+            onUpdate = { (props, camera) => {} }
+        />
+
+        <OrthographicCamera
+            { ...({...cp, polarAngle: cp.polarAngle + (Math.PI / 4)}) }
+            viewport={ new THREE.Vector4(0, 0 , Math.floor(halfWidth), Math.floor(halfHeight)) }
+            onUpdate = { (props, camera) => {} }
+        />
+
+        <OrthographicCamera
+            { ...({...cp, polarAngle: cp.polarAngle - (Math.PI / 4)}) }
+            viewport={ new THREE.Vector4(Math.floor(halfWidth), 0 , Math.floor(halfWidth), Math.floor(halfHeight)) }
+            onUpdate = { (props, camera) => {} }
+        />
+        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(halfWidth, 0, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
+        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(0, halfWidth, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
+        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(halfWidth, halfHeight, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
+        
+        
+        
+        
+        
+        <h1>ArrayCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/OrthographicCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/ArrayCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
 
-
-
-
         <div className="controls-block">
-            
+
             <p> Zoom: [{cameraProps.zoom}]
                 <input type="range" min="0.1" max="1.9" step="0.1" value={cameraProps.zoom} onChange={ e => {
                     setCameraProps({...cameraProps, zoom: parseFloat(e.target.value)});
                 }} />
             </p>
-
-            <p> Polar Angle:
+            
+            <p> Polar Angle: [{cameraProps.polarAngle}]
                 <input type="range" min={-Math.PI/2} max={Math.PI/2} step="0.1" value={cameraProps.polarAngle} onChange={ e => {
                     setCameraProps({...cameraProps, polarAngle: parseFloat(e.target.value)});
                 }} />
             </p>
             
-            <p> Azimuth Angle:
+            <p> Azimuth Angle: [{cameraProps.azimuthAngle}]
                 <input type="range" min={-Math.PI*2} max={Math.PI*2} step="0.1" value={cameraProps.azimuthAngle} onChange={ e => {
                     setCameraProps({...cameraProps, azimuthAngle: parseFloat(e.target.value)});
                 }} />
             </p>
 
-            {/* <p> Distance:
+            <p> Distance:
                 <input type="range" min="100" max="1000" step="1" value={cameraProps.distance} onChange={ e => {
                     setCameraProps({...cameraProps, distance: parseInt(e.target.value)});
                 }} />
-            </p> */}
+            </p>
 
             <p> Target: 
                 x: <input type="range" min="-100" max="100" step="1" value={cameraProps.target.x} onChange={ e => {
@@ -96,5 +132,5 @@ export default function OrthographicCameraExample({children}){
 
         </div>
 
-    </OrthographicCamera>;
+    </ArrayCamera>;
 }

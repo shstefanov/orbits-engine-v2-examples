@@ -13,6 +13,7 @@ import OrbitsSceneExample        from "examples/OrbitsSceneExample.jsx";
 
 import PerspectiveCameraExample  from "examples/PerspectiveCameraExample.jsx";
 import OrthographicCameraExample from "examples/OrthographicCameraExample.jsx";
+import ArrayCameraExample        from "examples/ArrayCameraExample.jsx";
 
 import Layout from "./Layout.jsx";
 
@@ -59,6 +60,7 @@ export default function App(){
                     <hr></hr>
                     <Link to="/PerspectiveCamera"  > Perspective Camera  </Link>
                     <Link to="/OrthographicCamera" > Orthographic Camera </Link>
+                    <Link to="/ArrayCamera"        > Array Camera </Link>
                 <hr />
             
             </>}> <Outlet /> </Layout>, children: toRouter({
@@ -67,6 +69,7 @@ export default function App(){
                 "/OrbitsScene":        <Combine { ...defaults({ name: "OrbitsRendererExample",     Scene:    OrbitsSceneExample        }) } />,
                 "/PerspectiveCamera":  <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample  }) } />,
                 "/OrthographicCamera": <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample }) } />,
+                "/ArrayCamera":        <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   ArrayCameraExample        }) } />,
             })}
         ])} />
         
