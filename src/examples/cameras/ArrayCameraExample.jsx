@@ -24,8 +24,6 @@ export default function ArrayCameraExample({children}){
             scrollSpeed:  1,
     });
 
-
-    console.log(renderer.actualSize);
     const cp = cameraProps;
 
     return <ArrayCamera
@@ -59,14 +57,9 @@ export default function ArrayCameraExample({children}){
             viewport={ new THREE.Vector4(Math.floor(halfWidth), 0 , Math.floor(halfWidth), Math.floor(halfHeight)) }
             onUpdate = { (props, camera) => {} }
         />
-        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(halfWidth, 0, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
-        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(0, halfWidth, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
-        {/* <OrthographicCamera { ...cameraProps } viewport={ new THREE.Vector4(halfWidth, halfHeight, halfWidth, halfHeight) }    onUpdate={e => {}}/> */}
-        
-        
-        
-        
-        
+
+
+
         <h1>ArrayCamera</h1>
 
         <a className="source-code-link"
