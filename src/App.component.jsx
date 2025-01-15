@@ -15,6 +15,10 @@ import PerspectiveCameraExample  from "examples/cameras/PerspectiveCameraExample
 import OrthographicCameraExample from "examples/cameras/OrthographicCameraExample.jsx";
 import ArrayCameraExample        from "examples/cameras/ArrayCameraExample.jsx";
 
+import MeshExample               from "examples/objects/MeshExample.jsx";
+import MeshLoaderExample         from "examples/objects/MeshLoaderExample.jsx";
+import MeshLoaderAnimatedExample from "examples/objects/MeshLoaderAnimatedExample.jsx";
+
 import Layout from "./Layout.jsx";
 
 function PassThrough({children}){ return children; }
@@ -52,15 +56,19 @@ export default function App(){
             { path: "/", element: <Layout navigation={<>
 
                 Renderer
-                    <Link to="/"                   > Home                </Link>
+                    <Link to="/"                   > Home                   </Link>
                     <hr></hr>
-                    <Link to="/OrbitsRenderer"     > OrbitsRenderer      </Link>
+                    <Link to="/OrbitsRenderer"     > OrbitsRenderer         </Link>
                     <hr></hr>
-                    <Link to="/OrbitsScene"        > OrbitsScene         </Link>
+                    <Link to="/OrbitsScene"        > OrbitsScene            </Link>
                     <hr></hr>
-                    <Link to="/PerspectiveCamera"  > Perspective Camera  </Link>
-                    <Link to="/OrthographicCamera" > Orthographic Camera </Link>
-                    <Link to="/ArrayCamera"        > Array Camera        </Link>
+                    <Link to="/PerspectiveCamera"  > Perspective Camera     </Link>
+                    <Link to="/OrthographicCamera" > Orthographic Camera    </Link>
+                    <Link to="/ArrayCamera"        > Array Camera           </Link>
+                    <hr></hr>
+                    <Link to="/Mesh"               > Mesh                   </Link>
+                    <Link to="/MeshLoader"         > Mesh Loader            </Link>
+                    <Link to="/MeshLoaderAnimated" > Mesh Loader (Animated) </Link>
                 <hr />
             
             </>}> <Outlet /> </Layout>, children: toRouter({
@@ -71,6 +79,10 @@ export default function App(){
                 "/PerspectiveCamera":  <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample  }) } />,
                 "/OrthographicCamera": <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample }) } />,
                 "/ArrayCamera":        <Combine { ...defaults({ name: "ArrayCameraExample",        Camera:   ArrayCameraExample        }) } />,
+
+                "/Mesh":               <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample               }) } />,
+                "/MeshLoader":         <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample         }) } />,
+                "/MeshLoaderAnimated": <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample }) } />,
             })}
         ])} />
         

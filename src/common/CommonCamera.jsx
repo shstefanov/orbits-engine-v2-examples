@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { PerspectiveCamera, PointLight } from "@orbits/engine";
+import { PerspectiveCamera, AmbientLight, PointLight } from "@orbits/engine";
 
 export default function CommonCamera({children}){
 
@@ -24,13 +24,9 @@ export default function CommonCamera({children}){
         onUpdate = { (props, camera) => setCameraProps(props) }
     >
 
-        {/* <PointLight 
-          color="#ffffff"
-          intensity={200}
-          distance={2000}
-          decay={2}
-          powe={100}  
-        /> */}
+        <AmbientLight intensity={3} />
+
+        <PointLight intensity={5000} distance={1000} position={{ x: 0, y: 0, z: 0 }} />
 
         { children }
     

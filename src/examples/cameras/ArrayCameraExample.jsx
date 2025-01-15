@@ -28,8 +28,9 @@ export default function ArrayCameraExample({children}){
 
     return <ArrayCamera
         
+        // {...cp}
 
-        onUpdate = { (props, camera) => setCameraProps(props) }
+        // onUpdate = { (props, camera) => setCameraProps(props) }
     >
 
         Alabala
@@ -37,7 +38,11 @@ export default function ArrayCameraExample({children}){
         <PerspectiveCamera 
             { ...cp } 
             viewport={ new THREE.Vector4(0, Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) } 
-            onUpdate = { (props, camera) => setCameraProps(props) }
+            // onUpdate = { (props, camera) => {} }
+            onUpdate = { (props, camera) => {
+                console.log("target: ", props.target);
+                setCameraProps(props)
+            } }
         />
         
         <PerspectiveCamera
