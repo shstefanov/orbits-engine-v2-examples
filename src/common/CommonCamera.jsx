@@ -24,9 +24,9 @@ export default function CommonCamera({children}){
         onUpdate = { (props, camera) => setCameraProps(props) }
     >
 
-        <AmbientLight intensity={3} />
+        <AmbientLight intensity={1.5} />
 
-        <PointLight intensity={5000} distance={1000} position={{ x: 0, y: 0, z: 0 }} />
+        <PointLight intensity={5000} distance={100000} position={{ x: 0, y: 0, z: 0 }} />
 
         { children }
     

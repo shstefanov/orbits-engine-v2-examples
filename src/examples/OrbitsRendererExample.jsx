@@ -23,6 +23,8 @@ export default function OrbitsRendererExample({children, hideChildren}){
             backgroundColor: "black",
         }}
 
+        // pixelRatio = { somevalue } // Default is window.devicePixelRatio
+
         config = {{
             // Constructor options WebGLRenderer
             // https://threejs.org/docs/?q=WebG#api/en/renderers/WebGLRenderer

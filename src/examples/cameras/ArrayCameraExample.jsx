@@ -6,9 +6,9 @@ export default function ArrayCameraExample({children}){
 
     const renderer = useRenderer();
 
-    const { width, height } = renderer.actualSize;
-    const halfWidth = width / 2;
-    const halfHeight = height / 2;
+    const size = renderer.getSize();
+    const halfWidth = size.width / 2;
+    const halfHeight = size.height / 2;
 
     const [ cameraProps, setCameraProps ] = useState({
         
@@ -37,7 +37,7 @@ export default function ArrayCameraExample({children}){
         
         <PerspectiveCamera 
             { ...cp } 
-            viewport={ new THREE.Vector4(0, Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) } 
+            viewport={ new THREE.Vector4(0, Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) }
             // onUpdate = { (props, camera) => {} }
             onUpdate = { (props, camera) => {
                 console.log("target: ", props.target);

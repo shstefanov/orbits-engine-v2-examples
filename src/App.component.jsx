@@ -19,6 +19,8 @@ import MeshExample               from "examples/objects/MeshExample.jsx";
 import MeshLoaderExample         from "examples/objects/MeshLoaderExample.jsx";
 import MeshLoaderAnimatedExample from "examples/objects/MeshLoaderAnimatedExample.jsx";
 
+import MouseEventsExample        from "examples/MouseEventsExamples.jsx";
+
 import Layout from "./Layout.jsx";
 
 function PassThrough({children}){ return children; }
@@ -69,6 +71,9 @@ export default function App(){
                     <Link to="/Mesh"               > Mesh                   </Link>
                     <Link to="/MeshLoader"         > Mesh Loader            </Link>
                     <Link to="/MeshLoaderAnimated" > Mesh Loader (Animated) </Link>
+                    <hr></hr>
+                    <Link to="/MouseEvents"        > Mouse Events           </Link>
+
                 <hr />
             
             </>}> <Outlet /> </Layout>, children: toRouter({
@@ -83,6 +88,8 @@ export default function App(){
                 "/Mesh":               <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample               }) } />,
                 "/MeshLoader":         <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample         }) } />,
                 "/MeshLoaderAnimated": <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample }) } />,
+
+                "/MouseEvents":        <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample        }) } />,
             })}
         ])} />
         

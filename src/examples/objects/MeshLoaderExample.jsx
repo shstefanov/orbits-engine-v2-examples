@@ -60,15 +60,10 @@ const mesh_json = {
 
 
 
-export default function MeshJSONExample(){
+export default function MeshLoaderExample(){
 
     return <>
         
-        {/* <AmbientLight intensity={4} /> */}
-
-        {/* <PointLight intensity={50} distance={1000} position={{ x: 0, y: 20, z: 0 }} /> */}
-
-
         <MeshLoader json={ mesh_json }              position={{ x: 0, y: 0, z:  50 }} />
         <MeshLoader src="/objects/simple_mesh.json" position={{ x: 0, y: 0, z: -50 }} />
        
@@ -83,11 +78,6 @@ export default function MeshJSONExample(){
         <a className="source-code-link"
             href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/objects/MeshLoaderExample.jsx"
         > &lt;SOURCE&gt; </a>
-
-
-
-
-
 
     </>;
 
