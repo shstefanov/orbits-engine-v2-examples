@@ -29,10 +29,12 @@ html, body, #root {
     flex-shrink: 1;
     position: relative;
     color: white;
+    overflow: hidden;
 }
 
 .layout > .content > * {
     position: absolute;
+    max-width: 100%;
 }
 
 

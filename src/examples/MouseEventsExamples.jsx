@@ -12,7 +12,7 @@ const blueMaterial    = new THREE.MeshPhongMaterial( {color: 0x0000ff} );
 
 const defaultState = {
     clicks:      0,
-    mousedown:   false,
+    mousedown:   null,
     mousemove:   0,
     contextmenu: 0,
 
@@ -34,27 +34,45 @@ export default function MouseEventsExample(){
     const [ redState,    setRedState    ] = useState({ ...defaultState });
     const [ blueState,   setBlueState   ] = useState({ ...defaultState });
 
+
+    (yellowState.clicks >= yellowState.mouseUpTS) && console.log("component click-mouseup", yellowState.clicks - yellowState.mouseUpTS);
+
+
     return <>
         
     <Mesh
         geometry = { bigBoxGeometry }
         material = { yellowMaterial }
 
-            onMouseMove   = { e => { setYellowState({ ...yellowState, mousemove:   ++yellowState.mousemove   }) }}
-            onClick       = { e => { setYellowState({ ...yellowState, clicks:      ++yellowState.clicks      }) }}
-            onMouseDown   = { e => { setYellowState({ ...yellowState, mousedown:   true                      }) }}
-            onMouseUp     = { e => { setYellowState({ ...yellowState, mousedown:   false                     }) }}
-            onContextMenu = { e => { setYellowState({ ...yellowState, contextmenu: ++yellowState.contextmenu }) }}
+            // onMouseMove   = { e => console.log("mousemove") }
+            // onMouseOver   = { e => console.log("mouseover", e.intersection.point) }
+            // onMouseOut    = { e => console.log("mouseout",  e.intersection.point) }
+            
+            // onMouseEnter  = { e => console.log("mouseenter",  e.intersection.point) }
+            // onMouseLeave  = { e => console.log("mouseleave",  e.intersection.point) }
+            
+            
+            // onClick       = { e => console.log("click",  e.intersection.point) }
+            // onMouseDown   = { e => console.log("mousedown",  e.intersection.point) }
+            // onMouseUp     = { e => console.log("mouseup",  e.intersection.point) }
+
+
+            // onContextMenu = { e => console.log("contextmenu",  e.intersection.point) }
 
             // TODO:
 
-            // onMouseOver   = { e => { setYellowState({...yellowState, mouseover:   ++yellowState.mouseover   }) }}
-            // onMouseEnter  = { e => { setYellowState({...yellowState, mouseenter:  ++yellowState.mouseenter  }) }}
-            // onMouseLeave  = { e => { setYellowState({...yellowState, mouseleave:  ++yellowState.mouseleave  }) }}
+            // onDragStart = { e => {
+            //     e.preventDefault(); // Stops camera controls
+            //     console.log("dragstart", e.intersection.point);
+            // }}
+            
+            // onDrag = { e => console.log("drag",  e.ray, e.dragSource ) }
+            // onDragStop  = { e => console.log("dragstop",  e.ray) }
 
-            // onDragStart = { e => { e.preventDefault(); console.log("dragstart"); }}
-            // onDragStop  = { e => { e.preventDefault(); console.log("dragstop");  }}
-            // onDrag      = { e => { e.preventDefault(); console.log("drag");      }}
+            onDragOver = { e => console.log("dragover",  e.ray, e.dragSource ) }
+            onDrop     = { e => console.log("drop",      e.ray, e.dragSource ) }
+
+
         >
             <Mesh
                 geometry = { smallBoxGeometry }
@@ -79,6 +97,12 @@ export default function MouseEventsExample(){
             geometry = { smallBoxGeometry }
             material = { greenMaterial    }
             position = {{ x: 0, y: 50, z: 0 }}
+
+            // Allows dragging and stops camera controls
+            onDragStart = { e =>  e.preventDefault() }
+            
+
+
         />
 
 
