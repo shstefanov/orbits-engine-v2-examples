@@ -113,7 +113,7 @@ export default function MouseEventsExample(){
         <h1>Mouse Events</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/MouseEventsExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/MouseEventsExamples.jsx"
         > &lt;SOURCE&gt; </a>
 
         <p>{JSON.stringify(yellowState)}</p>

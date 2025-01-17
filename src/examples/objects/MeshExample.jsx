@@ -46,7 +46,7 @@ export default function MeshExample(){
         <h1>Mesh</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/objects/MeshExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/MeshExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

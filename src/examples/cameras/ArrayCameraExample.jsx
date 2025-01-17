@@ -68,7 +68,7 @@ export default function ArrayCameraExample({children}){
         <h1>ArrayCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/ArrayCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/ArrayCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

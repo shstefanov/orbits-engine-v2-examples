@@ -27,7 +27,7 @@ export default function PerspectiveCameraExample({children}){
         <h1>PerspectiveCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/PerspectiveCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/PerspectiveCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

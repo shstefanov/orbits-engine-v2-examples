@@ -21,7 +21,7 @@ export default function MeshJSONExample(){
         <h1> Mesh Loader (Animated) </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/objects/MeshLoaderAnimatedExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/MeshLoaderAnimatedExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 
