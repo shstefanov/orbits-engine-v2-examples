@@ -5,122 +5,132 @@ import * as THREE from "three";
 const bigBoxGeometry   = new THREE.BoxGeometry( 30, 30, 30 );
 const smallBoxGeometry = new THREE.BoxGeometry( 10, 10, 10 );
 
-const yellowMaterial  = new THREE.MeshPhongMaterial( {color: 0xffff00} );
-const redMaterial     = new THREE.MeshPhongMaterial( {color: 0xff0000} );
-const greenMaterial   = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
-const blueMaterial    = new THREE.MeshPhongMaterial( {color: 0x0000ff} );
+const yellowMaterial   = new THREE.MeshPhongMaterial( {color: 0xffff00} );
+const redMaterial      = new THREE.MeshPhongMaterial( {color: 0xff0000} );
+const blueMaterial     = new THREE.MeshPhongMaterial( {color: 0x0000ff} );
+const greenMaterial    = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
 
 const defaultState = {
-    clicks:      0,
-    mousedown:   null,
-    mousemove:   0,
-    contextmenu: 0,
-
-    mouseover:   0,
-    mouseenter:  0,
-    mouseleave:  0,
-}
+    mousemove:   0,  dragstart:   0,  click:       0,
+    mouseover:   0,  dragstop:    0,  mousedown:   0,
+    mouseout:    0,  drag:        0,  mouseup:     0,
+    mouseenter:  0,  dragover:    0,  contextmenu: 0,
+    mouseleave:  0,  drop:        0,  bubbling:    true,
+};
 
 export default function MouseEventsExample(){
 
-    const parentClick = useCallback( e => console.log("Parent Click", e ));
-    const parentMove  = useCallback( e => console.log("Parent Move",  e ));
+    const [ yellowState, setYellowState ] = useState({ ...defaultState, name: "Yellow", color: "#ffff00" });
+    const [ redState,    setRedState    ] = useState({ ...defaultState, name: "Red",    color: "#ff0000" });
+    const [ blueState,   setBlueState   ] = useState({ ...defaultState, name: "Blue",   color: "#0000ff" });
+    const [ greenState,  setGreenState  ] = useState({ ...defaultState, name: "Green",  color: "#00ff00" });
 
-    const childClick  = useCallback( e => {
-        e.stopPropagation();
-    });
+    function createUpdateAttributes(state, setter){
+        return {
+            onMouseMove:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mousemove:  ++state.mousemove    })},
+            onMouseOver:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseover:  ++state.mouseover    })},
+            onMouseOut:    e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseout:   ++state.mouseout     })},
+            
+            onMouseEnter:  e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseenter: ++state.mouseenter   })},
+            onMouseLeave:  e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseleave: ++state.mouseleave   })},
 
-    const [ yellowState, setYellowState ] = useState({ ...defaultState });
-    const [ redState,    setRedState    ] = useState({ ...defaultState });
-    const [ blueState,   setBlueState   ] = useState({ ...defaultState });
+            onClick:       e => {!state.bubbling && e.stopPropagation(); setter({...state, click:      ++state.click        })},
+            onMouseDown:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mousedown:  ++state.mousedown    })},
+            onMouseUp:     e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseup:    ++state.mouseup      })},
 
+            onContextMenu: e => {!state.bubbling && e.stopPropagation(); setter({...state, contextmenu: ++state.contextmenu })},
 
-    (yellowState.clicks >= yellowState.mouseUpTS) && console.log("component click-mouseup", yellowState.clicks - yellowState.mouseUpTS);
+            // e.preventDefault() turns on dragging and prevents input from being used by camera
+            onDragStart:   e => {!state.bubbling && e.stopPropagation(); { e.preventDefault(); setter({...state, dragstart:  ++state.dragstart })}},
+            onDragStop:    e => {!state.bubbling && e.stopPropagation(); setter({...state, dragstop:   ++state.dragstop     })},
+            onDrag:        e => {!state.bubbling && e.stopPropagation(); setter({...state, drag:       ++state.drag         })},
 
+            onDragOver:    e => {!state.bubbling && e.stopPropagation(); setter({...state, dragover:   ++state.dragover     })},
+            onDrop:        e => {!state.bubbling && e.stopPropagation(); setter({...state, drop:       ++state.drop         })},
+        };
+    }
 
     return <>
         
-    <Mesh
-        geometry = { bigBoxGeometry }
-        material = { yellowMaterial }
-
-            // onMouseMove   = { e => console.log("mousemove") }
-            // onMouseOver   = { e => console.log("mouseover", e.intersection.point) }
-            // onMouseOut    = { e => console.log("mouseout",  e.intersection.point) }
-            
-            // onMouseEnter  = { e => console.log("mouseenter",  e.intersection.point) }
-            // onMouseLeave  = { e => console.log("mouseleave",  e.intersection.point) }
-            
-            
-            // onClick       = { e => console.log("click",  e.intersection.point) }
-            // onMouseDown   = { e => console.log("mousedown",  e.intersection.point) }
-            // onMouseUp     = { e => console.log("mouseup",  e.intersection.point) }
-
-
-            // onContextMenu = { e => console.log("contextmenu",  e.intersection.point) }
-
-            // TODO:
-
-            // onDragStart = { e => {
-            //     e.preventDefault(); // Stops camera controls
-            //     console.log("dragstart", e.intersection.point);
-            // }}
-            
-            // onDrag = { e => console.log("drag",  e.ray, e.dragSource ) }
-            // onDragStop  = { e => console.log("dragstop",  e.ray) }
-
-            onDragOver = { e => console.log("dragover",  e.ray, e.dragSource ) }
-            onDrop     = { e => console.log("drop",      e.ray, e.dragSource ) }
-
-
+        { /* 3D components */ }
+        <Mesh
+            geometry = { bigBoxGeometry }
+            material = { yellowMaterial }
+            { ...createUpdateAttributes(yellowState, setYellowState) }
         >
+            
             <Mesh
                 geometry = { smallBoxGeometry }
                 material = { redMaterial      }
-                position = {{ x: 50, y: 0, z: 0 }}
-                onClick = { e => {
-                    e.stopPropagation();
-                    console.log( "Child Click with stop event bubbling" );
-                }}
+                position = {{ x: 15, y: 0, z: 0 }}
+                { ...createUpdateAttributes(redState, setRedState) }
             />
+            
             <Mesh
                 geometry = { smallBoxGeometry }
                 material = { blueMaterial     }
                 position = {{ x: 0, y: 0, z: 15 }}
-                onClick  = { e => {
-                    console.log( "Child Click" );
-                }}
+                { ...createUpdateAttributes(blueState, setBlueState) }
             />
+
         </Mesh>
 
         <Mesh
             geometry = { smallBoxGeometry }
             material = { greenMaterial    }
             position = {{ x: 0, y: 50, z: 0 }}
-
-            // Allows dragging and stops camera controls
-            onDragStart = { e =>  e.preventDefault() }
-            
-
-
+            { ...createUpdateAttributes(greenState, setGreenState) }
         />
 
 
-
-
-
-
+        { /* HTML components */ } 
         <h1>Mouse Events</h1>
 
         <a className="source-code-link"
             href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/MouseEventsExamples.jsx"
         > &lt;SOURCE&gt; </a>
 
-        <p>{JSON.stringify(yellowState)}</p>
+        <div style={ infoblockStyles } >
 
+            { [ [yellowState, setYellowState], [redState, setRedState], [blueState, setBlueState], [greenState, setGreenState] ].map( ([state, setter]) => {
+                
+                const element_key = `mouse-events-stats-${state.name}`;
+                const style       = {...targetBlockStyles, color: state.color };
 
+                const { name, color, ...renderProps } = state;
 
-
+                return <div key={element_key} style={style}> 
+                    { Object.keys(renderProps).map( propname => {
+                        const element_key   = `mouse-events-stats-${state.name}-${propname}`;
+                        const value         = renderProps[propname];
+                        return <p key={element_key}> {propname}: {value + ''} </p>;
+                    }) }
+                    <p> Bubbling: <input
+                        type="checkbox"
+                        checked={state.bubbling}
+                        onChange={ e => setter({...state, bubbling: e.target.checked })}
+                    /> </p>
+                </div>})}
+        </div>
     </>;
-
 }
+
+const infoblockStyles = {
+    width:           "50%",
+    height:          "30%",
+    left:            "0px",
+    bottom:          "0px",
+    backgroundColor: "black",
+    border:          "1px solid white",
+    display:         "flex",
+    flexDirection:   "row"
+};
+
+const targetBlockStyles = {
+    flexGrow:        "1",
+    flexShrink:      "0",
+    flexBasis:       "20%",
+    height:          "100%",
+    border:          "1px solid white",
+    padding:         "4px",
+};
