@@ -11,11 +11,25 @@ const blueMaterial     = new THREE.MeshPhongMaterial( {color: 0x0000ff} );
 const greenMaterial    = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
 
 const defaultState = {
-    mousemove:   0,  dragstart:   0,  click:       0,
-    mouseover:   0,  dragstop:    0,  mousedown:   0,
-    mouseout:    0,  drag:        0,  mouseup:     0,
-    mouseenter:  0,  dragover:    0,  contextmenu: 0,
-    mouseleave:  0,  drop:        0,  bubbling:    true,
+
+    click:       0,
+    mousedown:   0,
+    mouseup:     0,
+    contextmenu: 0,
+
+    mousemove:   0,
+    mouseover:   0,
+    mouseout:    0,
+    mouseenter:  0,
+    mouseleave:  0,
+
+    dragstart:   0,
+    dragstop:    0,
+    drag:        0,
+    dragover:    0,
+    drop:        0,
+
+    bubbling:    true,
 };
 
 export default function MouseEventsExample(){
@@ -27,26 +41,32 @@ export default function MouseEventsExample(){
 
     function createUpdateAttributes(state, setter){
         return {
-            onMouseMove:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mousemove:  ++state.mousemove    })},
-            onMouseOver:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseover:  ++state.mouseover    })},
-            onMouseOut:    e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseout:   ++state.mouseout     })},
-            
-            onMouseEnter:  e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseenter: ++state.mouseenter   })},
-            onMouseLeave:  e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseleave: ++state.mouseleave   })},
 
-            onClick:       e => {!state.bubbling && e.stopPropagation(); setter({...state, click:      ++state.click        })},
-            onMouseDown:   e => {!state.bubbling && e.stopPropagation(); setter({...state, mousedown:  ++state.mousedown    })},
-            onMouseUp:     e => {!state.bubbling && e.stopPropagation(); setter({...state, mouseup:    ++state.mouseup      })},
+            // e.preventDefault() in onMouseDown and onDragStart prevents mouse input
+            // from being used by camera to rotate while dragging
 
-            onContextMenu: e => {!state.bubbling && e.stopPropagation(); setter({...state, contextmenu: ++state.contextmenu })},
+            // e.stopPropagation stops eventhandlers of parent objects from being triggered
+            // In threejs hierarchy event will bubble up to the scene, then in DOM tree
 
-            // e.preventDefault() turns on dragging and prevents input from being used by camera
-            onDragStart:   e => {!state.bubbling && e.stopPropagation(); { e.preventDefault(); setter({...state, dragstart:  ++state.dragstart })}},
-            onDragStop:    e => {!state.bubbling && e.stopPropagation(); setter({...state, dragstop:   ++state.dragstop     })},
-            onDrag:        e => {!state.bubbling && e.stopPropagation(); setter({...state, drag:       ++state.drag         })},
+            onMouseMove:   e => { !state.bubbling && e.stopPropagation(); setter({...state, mousemove:  ++state.mousemove    })},
+            onMouseOver:   e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseover:  ++state.mouseover    })},
+            onMouseOut:    e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseout:   ++state.mouseout     })},
 
-            onDragOver:    e => {!state.bubbling && e.stopPropagation(); setter({...state, dragover:   ++state.dragover     })},
-            onDrop:        e => {!state.bubbling && e.stopPropagation(); setter({...state, drop:       ++state.drop         })},
+            onMouseEnter:  e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseenter: ++state.mouseenter   })},
+            onMouseLeave:  e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseleave: ++state.mouseleave   })},
+
+            onClick:       e => { !state.bubbling && e.stopPropagation(); setter({...state, click:      ++state.click        })},
+            onMouseDown:   e => { !state.bubbling && e.stopPropagation(); setter({...state, mousedown:  ++state.mousedown    })},
+            onMouseUp:     e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseup:    ++state.mouseup      })},
+
+            onContextMenu: e => { !state.bubbling && e.stopPropagation(); setter({...state, contextmenu: ++state.contextmenu })},
+
+            onDragStart:   e => { !state.bubbling && e.stopPropagation(); { e.preventDefault(); setter({...state, dragstart:  ++state.dragstart })}},
+            onDragStop:    e => { !state.bubbling && e.stopPropagation(); setter({...state, dragstop:   ++state.dragstop     })},
+            onDrag:        e => { !state.bubbling && e.stopPropagation(); setter({...state, drag:       ++state.drag         })},
+
+            onDragOver:    e => { !state.bubbling && e.stopPropagation(); setter({...state, dragover:   ++state.dragover     })},
+            onDrop:        e => { !state.bubbling && e.stopPropagation(); setter({...state, drop:       ++state.drop         })},
         };
     }
 
