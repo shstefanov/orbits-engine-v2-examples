@@ -19,36 +19,12 @@ import MeshExample               from "examples/objects/MeshExample.jsx";
 import MeshLoaderExample         from "examples/objects/MeshLoaderExample.jsx";
 import MeshLoaderAnimatedExample from "examples/objects/MeshLoaderAnimatedExample.jsx";
 
-import MouseEventsExample        from "examples/MouseEventsExamples.jsx";
+import MouseEventsExample        from "examples/mouse/MouseEventsExamples.jsx";
+import DragAndDropExample        from "examples/mouse/DragAndDropExample.jsx";
+
+import LineGeometryExample       from "examples/geometries/LineGeometryExample.jsx";
 
 import Layout from "./Layout.jsx";
-
-function PassThrough({children}){ return children; }
-function Combine({name, Renderer=PassThrough, Scene=PassThrough, Content=PassThrough, Camera=PassThrough}){
-    return <>
-        {[
-            <Renderer key={name}>
-                <Scene>
-                    <Camera></Camera>
-                    <Content></Content>
-                </Scene> 
-            </Renderer>]}
-    </>;
-}
-
-function toRouter(object){
-    const result = [];
-    for(let path in object) result.push({path, element: object[path]});
-    return result;
-}
-
-const defaults = (components) => Object.assign({
-    Renderer: CommonRenderer,
-    Camera:   CommonCamera,
-    Scene:    CommonScene,
-    Content:  CommonContent,
-}, components);
-
 
 export default function App(){
     return <>
@@ -73,6 +49,10 @@ export default function App(){
                     <Link to="/MeshLoaderAnimated" > Mesh Loader (Animated) </Link>
                     <hr></hr>
                     <Link to="/MouseEvents"        > Mouse Events           </Link>
+                    <Link to="/DragAndDrop"        > Drag and Drop          </Link>
+
+                    <hr></hr>
+                    <Link to="/LineGeometry"       > Line                   </Link>
 
                 <hr />
             
@@ -90,6 +70,9 @@ export default function App(){
                 "/MeshLoaderAnimated": <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample }) } />,
 
                 "/MouseEvents":        <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample        }) } />,
+                "/DragAndDrop":        <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample        }) } />,
+
+                "/LineGeometry":       <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample       }) } />,
             })}
         ])} />
         
@@ -146,3 +129,31 @@ export default function App(){
     
     ;
 }
+
+// Helpers
+function PassThrough({children}){ return children; }
+
+function Combine({name, Renderer=PassThrough, Scene=PassThrough, Content=PassThrough, Camera=PassThrough}){
+    return <>
+        {[
+            <Renderer key={name}>
+                <Scene>
+                    <Camera></Camera>
+                    <Content></Content>
+                </Scene> 
+            </Renderer>]}
+    </>;
+}
+
+function toRouter(object){
+    const result = [];
+    for(let path in object) result.push({path, element: object[path]});
+    return result;
+}
+
+const defaults = (components) => Object.assign({
+    Renderer: CommonRenderer,
+    Camera:   CommonCamera,
+    Scene:    CommonScene,
+    Content:  CommonContent,
+}, components);

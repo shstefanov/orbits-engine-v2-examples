@@ -76,6 +76,7 @@ export default function MouseEventsExample(){
         <Mesh
             geometry = { bigBoxGeometry }
             material = { yellowMaterial }
+            dropzone="zone-1"
             { ...createUpdateAttributes(yellowState, setYellowState) }
         >
             
@@ -83,6 +84,7 @@ export default function MouseEventsExample(){
                 geometry = { smallBoxGeometry }
                 material = { redMaterial      }
                 position = {{ x: 15, y: 0, z: 0 }}
+                draggable="zone-1"
                 { ...createUpdateAttributes(redState, setRedState) }
             />
             
@@ -99,6 +101,7 @@ export default function MouseEventsExample(){
             geometry = { smallBoxGeometry }
             material = { greenMaterial    }
             position = {{ x: 0, y: 50, z: 0 }}
+            draggable="zone-1"
             { ...createUpdateAttributes(greenState, setGreenState) }
         />
 
@@ -114,16 +117,14 @@ export default function MouseEventsExample(){
 
             { [ [yellowState, setYellowState], [redState, setRedState], [blueState, setBlueState], [greenState, setGreenState] ].map( ([state, setter]) => {
                 
-                const element_key = `mouse-events-stats-${state.name}`;
-                const style       = {...targetBlockStyles, color: state.color };
+                const style = {...targetBlockStyles, color: state.color };
 
                 const { name, color, ...renderProps } = state;
 
-                return <div key={element_key} style={style}> 
+                return <div key={state.name} style={style}> 
                     { Object.keys(renderProps).map( propname => {
-                        const element_key   = `mouse-events-stats-${state.name}-${propname}`;
                         const value         = renderProps[propname];
-                        return <p key={element_key}> {propname}: {value + ''} </p>;
+                        return <p key={propname}> {propname}: {value + ''} </p>;
                     }) }
                     <p> Bubbling: <input
                         type="checkbox"
