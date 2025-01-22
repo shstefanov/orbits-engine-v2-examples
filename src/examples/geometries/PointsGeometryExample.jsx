@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Mesh, Line } from "@orbits/engine";
+import { Points } from "@orbits/engine";
 import * as THREE from "three";
 
-const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+const pointsMaterial = new THREE.PointsMaterial( { color: 0x888888, size: 5, sizeAttenuation: false } );
 
 function randNum(from, to){
     return from + Math.floor(Math.random() * (to - from));
@@ -23,20 +23,17 @@ export default function LineGeometryExample(){
 
     const [ points, setPoints ] = useState(randPoints(10, 30));
 
-    function reset(){ setPoints(randPoints(10, 30)); }
-
     return <>
         
-        <Line
-            onClick={reset}
-            points={points}
-            material={lineMaterial}
+        <Points
+            points   = { points        }
+            material = { pointsMaterial}
         />
 
-        <h1>Line Geometry</h1>
+        <h1>Points Geometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/LineGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/PointsGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;

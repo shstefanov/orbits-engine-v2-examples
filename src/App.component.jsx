@@ -7,22 +7,26 @@ import CommonScene    from "./common/CommonScene";
 import CommonCamera   from "./common/CommonCamera";
 import CommonContent  from "./common/CommonContent";
 
-import Homepage                  from "examples/Homepage.jsx";
-import OrbitsRendererExample     from "examples/OrbitsRendererExample.jsx";
-import OrbitsSceneExample        from "examples/OrbitsSceneExample.jsx";
+import Homepage                    from "examples/Homepage.jsx";
+import OrbitsRendererExample       from "examples/OrbitsRendererExample.jsx";
+import OrbitsSceneExample          from "examples/OrbitsSceneExample.jsx";
 
-import PerspectiveCameraExample  from "examples/cameras/PerspectiveCameraExample.jsx";
-import OrthographicCameraExample from "examples/cameras/OrthographicCameraExample.jsx";
-import ArrayCameraExample        from "examples/cameras/ArrayCameraExample.jsx";
+import PerspectiveCameraExample    from "examples/cameras/PerspectiveCameraExample.jsx";
+import OrthographicCameraExample   from "examples/cameras/OrthographicCameraExample.jsx";
+import ArrayCameraExample          from "examples/cameras/ArrayCameraExample.jsx";
 
-import MeshExample               from "examples/objects/MeshExample.jsx";
-import MeshLoaderExample         from "examples/objects/MeshLoaderExample.jsx";
-import MeshLoaderAnimatedExample from "examples/objects/MeshLoaderAnimatedExample.jsx";
+import MeshExample                 from "examples/objects/MeshExample.jsx";
+import MeshLoaderExample           from "examples/objects/MeshLoaderExample.jsx";
+import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExample.jsx";
 
-import MouseEventsExample        from "examples/mouse/MouseEventsExamples.jsx";
-import DragAndDropExample        from "examples/mouse/DragAndDropExample.jsx";
+import MouseEventsExample          from "examples/mouse/MouseEventsExamples.jsx";
+import DragAndDropExample          from "examples/mouse/DragAndDropExample.jsx";
 
-import LineGeometryExample       from "examples/geometries/LineGeometryExample.jsx";
+import PointsGeometryExample       from "examples/geometries/PointsGeometryExample.jsx";
+import LineGeometryExample         from "examples/geometries/LineGeometryExample.jsx";
+import LineSegmentsGeometryExample from "examples/geometries/LineSegmentsGeometryExample.jsx";
+
+import GroupExample                from "examples/GroupExample.jsx";
 
 import Layout from "./Layout.jsx";
 
@@ -34,45 +38,54 @@ export default function App(){
             { path: "/", element: <Layout navigation={<>
 
                 Renderer
-                    <Link to="/"                   > Home                   </Link>
+                    <Link to="/"                     > Home                   </Link>
                     <hr></hr>
-                    <Link to="/OrbitsRenderer"     > OrbitsRenderer         </Link>
+                    <Link to="/OrbitsRenderer"       > OrbitsRenderer         </Link>
                     <hr></hr>
-                    <Link to="/OrbitsScene"        > OrbitsScene            </Link>
+                    <Link to="/OrbitsScene"          > OrbitsScene            </Link>
                     <hr></hr>
-                    <Link to="/PerspectiveCamera"  > Perspective Camera     </Link>
-                    <Link to="/OrthographicCamera" > Orthographic Camera    </Link>
-                    <Link to="/ArrayCamera"        > Array Camera           </Link>
+                    <Link to="/PerspectiveCamera"    > Perspective Camera     </Link>
+                    <Link to="/OrthographicCamera"   > Orthographic Camera    </Link>
+                    <Link to="/ArrayCamera"          > Array Camera           </Link>
                     <hr></hr>
-                    <Link to="/Mesh"               > Mesh                   </Link>
-                    <Link to="/MeshLoader"         > Mesh Loader            </Link>
-                    <Link to="/MeshLoaderAnimated" > Mesh Loader (Animated) </Link>
+                    <Link to="/Mesh"                 > Mesh                   </Link>
+                    <Link to="/MeshLoader"           > Mesh Loader            </Link>
+                    <Link to="/MeshLoaderAnimated"   > Mesh Loader (Animated) </Link>
                     <hr></hr>
-                    <Link to="/MouseEvents"        > Mouse Events           </Link>
-                    <Link to="/DragAndDrop"        > Drag and Drop          </Link>
+                    <Link to="/MouseEvents"          > Mouse Events           </Link>
+                    <Link to="/DragAndDrop"          > Drag and Drop          </Link>
 
                     <hr></hr>
-                    <Link to="/LineGeometry"       > Line                   </Link>
+                    <Link to="/PointsGeometry"       > Points                 </Link>
+                    <Link to="/LineGeometry"         > Line                   </Link>
+                    <Link to="/LineSegmentsGeometry" > Line Segments          </Link>
+
+                    <hr></hr>
+                    <Link to="/Group"                > Group                  </Link>
 
                 <hr />
             
             </>}> <Outlet /> </Layout>, children: toRouter({
-                "":                    <Combine { ...({         name: "Homepage",                  Content:  Homepage                  }) } />,
-                "/OrbitsRenderer":     <Combine { ...defaults({ name: "OrbitsRendererExample",     Renderer: OrbitsRendererExample     }) } />,
-                "/OrbitsScene":        <Combine { ...defaults({ name: "OrbitsRendererExample",     Scene:    OrbitsSceneExample        }) } />,
+                "":                      <Combine { ...({         name: "Homepage",                  Content:  Homepage                    }) } />,
+                "/OrbitsRenderer":       <Combine { ...defaults({ name: "OrbitsRendererExample",     Renderer: OrbitsRendererExample       }) } />,
+                "/OrbitsScene":          <Combine { ...defaults({ name: "OrbitsRendererExample",     Scene:    OrbitsSceneExample          }) } />,
                 
-                "/PerspectiveCamera":  <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample  }) } />,
-                "/OrthographicCamera": <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample }) } />,
-                "/ArrayCamera":        <Combine { ...defaults({ name: "ArrayCameraExample",        Camera:   ArrayCameraExample        }) } />,
+                "/PerspectiveCamera":    <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample    }) } />,
+                "/OrthographicCamera":   <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample   }) } />,
+                "/ArrayCamera":          <Combine { ...defaults({ name: "ArrayCameraExample",        Camera:   ArrayCameraExample          }) } />,
 
-                "/Mesh":               <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample               }) } />,
-                "/MeshLoader":         <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample         }) } />,
-                "/MeshLoaderAnimated": <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample }) } />,
+                "/Mesh":                 <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample                 }) } />,
+                "/MeshLoader":           <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample           }) } />,
+                "/MeshLoaderAnimated":   <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample   }) } />,
 
-                "/MouseEvents":        <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample        }) } />,
-                "/DragAndDrop":        <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample        }) } />,
+                "/MouseEvents":          <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample          }) } />,
+                "/DragAndDrop":          <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample          }) } />,
 
-                "/LineGeometry":       <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample       }) } />,
+                "/PointsGeometry":       <Combine { ...defaults({ name: "PointsGeometryExample",     Content:  PointsGeometryExample       }) } />,
+                "/LineGeometry":         <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample         }) } />,
+                "/LineSegmentsGeometry": <Combine { ...defaults({ name: "LineSegmentsGeometry",      Content:  LineSegmentsGeometryExample }) } />,
+
+                "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
             })}
         ])} />
         

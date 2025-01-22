@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mesh, Line } from "@orbits/engine";
+import { Mesh, LineSegments } from "@orbits/engine";
 import * as THREE from "three";
 
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
@@ -27,7 +27,7 @@ export default function LineGeometryExample(){
 
     return <>
         
-        <Line
+        <LineSegments
             onClick={reset}
             points={points}
             material={lineMaterial}
@@ -36,7 +36,7 @@ export default function LineGeometryExample(){
         <h1>Line Geometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/LineGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/LineSegmentsGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;

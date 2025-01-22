@@ -18,51 +18,59 @@ const greenDraggableProps  = { geometry: smallBoxGeometry, material: darkGreenMa
 function onDragStart(event) { event.preventDefault(); }
 
 function log(...args){
-    // console.log(...args);
+    console.log(...args);
 }
 
-export default function MouseEventsExample(){
+export default function DragAndDropExample(){
 
     const [ draggable_positions, setPositions ] = useState([
         { x:  80, y:  60, z: 2.5 },
-        // { x:  60, y:  80, z: 2.5 },
-        // { x: -80, y: -60, z: 2.5 },
-        // { x: -60, y: -80, z: 2.5 },
-        // { x:  80, y: -60, z: 27.5 },
-        // { x:  60, y: -80, z: 27.5 },
-        // { x: -80, y:  60, z: 27.5 },
-        // { x: -60, y:  80, z: 27.5 },
+        { x:  60, y:  80, z: 2.5 },
+        { x: -80, y: -60, z: 2.5 },
+        { x: -60, y: -80, z: 2.5 },
+        { x:  80, y: -60, z: 27.5 },
+        { x:  60, y: -80, z: 27.5 },
+        { x: -80, y:  60, z: 27.5 },
+        { x: -60, y:  80, z: 27.5 },
     ]);
 
     const posProps = index => ({
         
         id: "drag-" + index,
         object_index: index,
+        dragtrough: true,
 
         position: draggable_positions[index],
         
-        onDrag:            e => log("onDrag ",            index ),
+        // onDrag:            e => log("onDrag ",            index ),
         onDragStart:       e => { e.preventDefault(); log("onDragStart ",       index )},
-        onDragStop:        e => log("onDragStop ",        index ),
-        onDragTroughStart: e => log("onDragTroughStart ", index ),
-        onDragTroughEnd:   e => log("onDragTroughEnd ",   index ),
-        onDragTrough:      e => log("onDragTrough ",      index ),
-        onDragOverStart:   e => log("onDragOverStart ",   index ),
-        onDragOverEnd:     e => log("onDragOverEnd ",     index ),
-        onDragOver:        e => log("onDragOver ",        index ),
-        onDrop:            e => log("onDrop ",            index ),
+        // onDragStop:        e => log("onDragStop ",        index ),
+        // onDragTroughStart: e => log("onDragTroughStart ", index ),
+        // onDragTroughEnd:   e => log("onDragTroughEnd ",   index ),
+        // onDragTrough:      e => log("onDragTrough ",      index ),
+        // onDragOverStart:   e => log("onDragOverStart ",   index ),
+        // onDragOverEnd:     e => log("onDragOverEnd ",     index ),
+        // onDragOver:        e => log("onDragOver ",        index ),
+        // onDrop:            e => log("onDrop ",            index ),
 
     });
 
     const dropZoneProps = name => ({
         id: "drop-" + name,
-        onDrop:            e => log(`onDrop            [${name}]`, e ),
-        onDragOver:        e => log(`onDragOver        [${name}]`, e ),
-        onDragOverStart:   e => log(`onDragOverStart   [${name}]`, e ),
-        onDragOverEnd:     e => log(`onDragOverEnd     [${name}]`, e ),
-        onDragTrough:      e => log(`onDragTrough      [${name}]`, e ),
-        onDragTroughStart: e => log(`onDragTroughStart [${name}]`, e ),
-        onDragTroughEnd:   e => log(`onDragTroughEnd   [${name}]`, e ),
+        dragtrough:        true,
+        // onDrop:            e => log(`onDrop            [${name}]`, e ),
+        onDragOver:        e => {
+            const index = e.dragTarget.intersection.object.userData.object_index;
+            const position = e.intersection.point;
+            draggable_positions[index] = { ...position };
+            setPositions([...draggable_positions]);
+            
+        },
+        // onDragOverStart:   e => log(`onDragOverStart   [${name}]`, e ),
+        // onDragOverEnd:     e => log(`onDragOverEnd     [${name}]`, e ),
+        // onDragTrough:      e => log(`onDragTrough      [${name}]`, e ),
+        // onDragTroughStart: e => log(`onDragTroughStart [${name}]`, e ),
+        // onDragTroughEnd:   e => log(`onDragTroughEnd   [${name}]`, e ),
     })
 
     return <>
@@ -75,7 +83,7 @@ export default function MouseEventsExample(){
             dropzone="zone-yellow"
         />
 
-        {/* <Mesh { ...yellowDropZoneProps } { ... dropZoneProps("Yellow DropZone 2")}
+        <Mesh { ...yellowDropZoneProps } { ... dropZoneProps("Yellow DropZone 2")}
             position = {{ x: -65, y: -65, z: 0 }}
             dropzone="zone-yellow"
         />
@@ -88,25 +96,25 @@ export default function MouseEventsExample(){
         <Mesh { ...greenDropZoneProps } { ... dropZoneProps("Green DropZone 2")}
             position = {{ x: 65, y: -65, z: 25 }}
             dropzone="zone-green"
-        /> */}
+        />
 
         { /* Draggable Objects */ }
         <Mesh { ...yellowDraggableProps } { ...posProps(0) } draggable="zone-yellow" />
-        {/* <Mesh { ...yellowDraggableProps } { ...posProps(1) } draggable="zone-yellow" /> */}
-        {/* <Mesh { ...yellowDraggableProps } { ...posProps(2) } draggable="zone-yellow" /> */}
-        {/* <Mesh { ...yellowDraggableProps } { ...posProps(3) } draggable="zone-yellow" /> */}
+        <Mesh { ...yellowDraggableProps } { ...posProps(1) } draggable="zone-yellow" />
+        <Mesh { ...yellowDraggableProps } { ...posProps(2) } draggable="zone-yellow" />
+        <Mesh { ...yellowDraggableProps } { ...posProps(3) } draggable="zone-yellow" />
 
-        {/* <Mesh { ...greenDraggableProps  } { ...posProps(4) } draggable="zone-yellow" /> */}
-        {/* <Mesh { ...greenDraggableProps  } { ...posProps(5) } draggable="zone-yellow" /> */}
-        {/* <Mesh { ...greenDraggableProps  } { ...posProps(6) } draggable="zone-yellow" /> */}
-        {/* <Mesh { ...greenDraggableProps  } { ...posProps(7) } draggable="zone-yellow" /> */}
+        <Mesh { ...greenDraggableProps  } { ...posProps(4) } draggable="zone-green" />
+        <Mesh { ...greenDraggableProps  } { ...posProps(5) } draggable="zone-green" />
+        <Mesh { ...greenDraggableProps  } { ...posProps(6) } draggable="zone-green" />
+        <Mesh { ...greenDraggableProps  } { ...posProps(7) } draggable="zone-green" />
 
 
         { /* HTML components */ } 
         <h1>Drag and Drop</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/DragAndDropExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/mouse/DragAndDropExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;
