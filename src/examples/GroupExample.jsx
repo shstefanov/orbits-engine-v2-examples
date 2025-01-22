@@ -9,16 +9,14 @@ export default function MouseEventsExample(){
 
     return <>
 
-        { /* Drop Zones */ }
-        <Mesh { ...yellowDropZoneProps } { ... dropZoneProps("Yellow DropZone 1")}
-            position = {{ x: 65, y: 65, z: 0 }}
-            dropzone="zone-yellow"
-        />
+        { /* 3D components */ }
+        <Group position={{ x: 0, y: 0, z: -25 }}>
+            <Mesh geometry={boxGeometry} material={boxMaterial} position = {{ x:  65, y:  65, z: 0 }} />
+            <Mesh geometry={boxGeometry} material={boxMaterial} position = {{ x: -65, y:  65, z: 0 }} />
+            <Mesh geometry={boxGeometry} material={boxMaterial} position = {{ x:  65, y: -65, z: 0 }} />
+            <Mesh geometry={boxGeometry} material={boxMaterial} position = {{ x: -65, y: -65, z: 0 }} />
+        </Group>
 
-        <Mesh { ...yellowDropZoneProps } { ... dropZoneProps("Yellow DropZone 2")}
-            position = {{ x: -65, y: -65, z: 0 }}
-            dropzone="zone-yellow"
-        />
 
 
         { /* HTML components */ } 
