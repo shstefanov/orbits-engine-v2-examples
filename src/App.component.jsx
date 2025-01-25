@@ -14,6 +14,7 @@ import OrbitsSceneExample          from "examples/OrbitsSceneExample.jsx";
 import PerspectiveCameraExample    from "examples/cameras/PerspectiveCameraExample.jsx";
 import OrthographicCameraExample   from "examples/cameras/OrthographicCameraExample.jsx";
 import ArrayCameraExample          from "examples/cameras/ArrayCameraExample.jsx";
+import MouseLockControlsExample    from "examples/cameras/MouseLockControlsExample.jsx";
 
 import MeshExample                 from "examples/objects/MeshExample.jsx";
 import MeshLoaderExample           from "examples/objects/MeshLoaderExample.jsx";
@@ -47,6 +48,7 @@ export default function App(){
                     <Link to="/PerspectiveCamera"    > Perspective Camera     </Link>
                     <Link to="/OrthographicCamera"   > Orthographic Camera    </Link>
                     <Link to="/ArrayCamera"          > Array Camera           </Link>
+                    <Link to="/MouseLock"            > Mouse Lock             </Link>
                     <hr></hr>
                     <Link to="/Mesh"                 > Mesh                   </Link>
                     <Link to="/MeshLoader"           > Mesh Loader            </Link>
@@ -73,6 +75,7 @@ export default function App(){
                 "/PerspectiveCamera":    <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample    }) } />,
                 "/OrthographicCamera":   <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample   }) } />,
                 "/ArrayCamera":          <Combine { ...defaults({ name: "ArrayCameraExample",        Camera:   ArrayCameraExample          }) } />,
+                "/MouseLock":            <Combine { ...defaults({ name: "MouseLockExample",          Camera:   MouseLockControlsExample    }) } />,
 
                 "/Mesh":                 <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample                 }) } />,
                 "/MeshLoader":           <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample           }) } />,

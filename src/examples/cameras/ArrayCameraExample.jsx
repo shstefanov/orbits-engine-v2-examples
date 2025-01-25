@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import * as THREE from "three";
 import { ArrayCamera, PerspectiveCamera, OrthographicCamera, useRenderer } from "@orbits/engine";
 
+
+window.euler = new THREE.Euler();
+
 export default function ArrayCameraExample({children}){
 
     const renderer = useRenderer();
@@ -33,14 +36,11 @@ export default function ArrayCameraExample({children}){
         // onUpdate = { (props, camera) => setCameraProps(props) }
     >
 
-        Alabala
-        
         <PerspectiveCamera 
             { ...cp } 
             viewport={ new THREE.Vector4(0, Math.floor(halfHeight) , Math.floor(halfWidth), Math.floor(halfHeight)) }
             // onUpdate = { (props, camera) => {} }
             onUpdate = { (props, camera) => {
-                console.log("target: ", props.target);
                 setCameraProps(props)
             } }
         />

@@ -76,6 +76,7 @@ export default function MouseEventsExample(){
         <Mesh
             geometry = { bigBoxGeometry }
             material = { yellowMaterial }
+            interactive
             dropzone="zone-1"
             { ...createUpdateAttributes(yellowState, setYellowState) }
         >
@@ -84,6 +85,7 @@ export default function MouseEventsExample(){
                 geometry = { smallBoxGeometry }
                 material = { redMaterial      }
                 position = {{ x: 15, y: 0, z: 0 }}
+                interactive
                 draggable="zone-1"
                 { ...createUpdateAttributes(redState, setRedState) }
             />
@@ -92,6 +94,7 @@ export default function MouseEventsExample(){
                 geometry = { smallBoxGeometry }
                 material = { blueMaterial     }
                 position = {{ x: 0, y: 0, z: 15 }}
+                interactive
                 { ...createUpdateAttributes(blueState, setBlueState) }
             />
 
@@ -101,6 +104,7 @@ export default function MouseEventsExample(){
             geometry = { smallBoxGeometry }
             material = { greenMaterial    }
             position = {{ x: 0, y: 50, z: 0 }}
+            interactive
             draggable="zone-1"
             { ...createUpdateAttributes(greenState, setGreenState) }
         />

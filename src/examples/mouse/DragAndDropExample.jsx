@@ -10,10 +10,10 @@ const greenMaterial      = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
 const darkYellowMaterial = new THREE.MeshPhongMaterial( {color: 0xcccc00} );
 const darkGreenMaterial  = new THREE.MeshPhongMaterial( {color: 0x00cc00} );
 
-const yellowDropZoneProps  = { geometry: bigBoxGeometry,   material: yellowMaterial,     onDragStart };
-const greenDropZoneProps   = { geometry: bigBoxGeometry,   material: greenMaterial,      onDragStart };
-const yellowDraggableProps = { geometry: smallBoxGeometry, material: darkYellowMaterial, onDragStart };
-const greenDraggableProps  = { geometry: smallBoxGeometry, material: darkGreenMaterial,  onDragStart };
+const yellowDropZoneProps  = { geometry: bigBoxGeometry,   material: yellowMaterial,     onDragStart, interactive: true };
+const greenDropZoneProps   = { geometry: bigBoxGeometry,   material: greenMaterial,      onDragStart, interactive: true };
+const yellowDraggableProps = { geometry: smallBoxGeometry, material: darkYellowMaterial, onDragStart, interactive: true };
+const greenDraggableProps  = { geometry: smallBoxGeometry, material: darkGreenMaterial,  onDragStart, interactive: true };
 
 function onDragStart(event) { event.preventDefault(); }
 
