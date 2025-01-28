@@ -25,6 +25,7 @@ import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExam
 import MouseEventsExample          from "examples/mouse/MouseEventsExamples.jsx";
 import DragAndDropExample          from "examples/mouse/DragAndDropExample.jsx";
 import HoverExample                from "examples/mouse/HoverExample.jsx";
+import CursorExample               from "examples/mouse/CursorExample.jsx";
 
 import PointsGeometryExample       from "examples/geometries/PointsGeometryExample.jsx";
 import LineGeometryExample         from "examples/geometries/LineGeometryExample.jsx";
@@ -72,6 +73,7 @@ export default function App(){
                    <Link to="/MouseEvents"          > Mouse Events           </Link>
                    <Link to="/DragAndDrop"          > Drag and Drop          </Link>
                    <Link to="/Hover"                > Hover                  </Link>
+                   <Link to="/Cursor"               > Cursor                 </Link>
 
                 Geometries
                     <hr></hr>
@@ -99,6 +101,7 @@ export default function App(){
                 "/MouseEvents":          <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample          }) } />,
                 "/DragAndDrop":          <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample          }) } />,
                 "/Hover":                <Combine { ...defaults({ name: "HoverExample",              Content:  HoverExample                }) } />,
+                "/Cursor":               <Combine { ...defaults({ name: "CursorExample",             Content:  CursorExample               }) } />,
 
                 "/PointsGeometry":       <Combine { ...defaults({ name: "PointsGeometryExample",     Content:  PointsGeometryExample       }) } />,
                 "/LineGeometry":         <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample         }) } />,

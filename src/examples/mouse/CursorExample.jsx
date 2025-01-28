@@ -8,7 +8,7 @@ const bigBoxMaterial = new THREE.MeshPhongMaterial( { color: 0xffff00 } );
 const hoverBoxGeometry = new THREE.BoxGeometry( 10, 10, 10 );
 const hoverboxMaterial = new THREE.MeshPhongMaterial( { color: 0x0000ff } );
 
-export default function HoverExample(){
+export default function CursorExample(){
 
     return <>
         
@@ -18,13 +18,16 @@ export default function HoverExample(){
             material = { bigBoxMaterial }
             position = {{ x: -50, y: 0, z: 0 }}
             interactive
-            hover = {
-                <Mesh
-                    geometry = { hoverBoxGeometry }
-                    material = { hoverboxMaterial }
-                    position = {{ x: 0, y: 0, z: 30 }}
-                />
-            }
+            cursor="url('/images/cursor.png'), default"
+        >
+        </Mesh>
+
+        <Mesh
+            geometry = { bigBoxGeometry }
+            material = { bigBoxMaterial }
+            position = {{ x: 50, y: 0, z: 0 }}
+            interactive
+            cursor="url('/images/cursor-green.png'), default"
         >
         </Mesh>
 

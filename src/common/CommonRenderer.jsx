@@ -11,6 +11,7 @@ export default function CommonRenderer({children}){
             width:           "100%",
             height:          "100%",
             backgroundColor: "black",
+            // cursor:          "url('/images/cursor-orange.png'), default"
         }}
 
         // https://threejs.org/docs/?q=renderer#api/en/renderers/WebGLRenderer
