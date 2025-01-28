@@ -1,0 +1,164 @@
+.object-editor {
+    --tools-background: #393939;
+    --tools-outline:    #097076;
+    --tools-text-color: #b7b7b7;
+    --toolbar-size:     25px;
+}
+
+.object-editor {
+    width:          100%;
+    height:         100%;
+    overflow:       hidden;
+    display:        flex;
+    flex-direction: column;
+    color:          var(--tools-text-color);
+}
+
+.object-editor > * {
+    width: 100%;
+}
+
+.object-editor > .toolbar {
+   flex-grow:        0;
+   flex-shrink:      0;
+   flex-basis:       var(--toolbar-size);
+   max-height:       var(--toolbar-size);
+   background-color: var(--tools-background);
+   outline:          1px solid var(--tools-outline);
+   z-index:          2;
+   overflow:         visible;
+}
+
+.object-editor > .main {
+    flex-grow:      1;
+    flex-shrink:    1;
+    display:        flex;
+    flex-direction: row;
+    z-index:        1;
+}
+
+.object-editor > .main > * {
+    width: 100%;
+}
+
+.object-editor > .main > .sidebar {
+    flex-grow:        0;
+    flex-shrink:      0;
+    background-color: #393939;
+    order:            0;
+    z-index:          1;
+    position:         relative;
+    max-height:       calc(100vh - var(--toolbar-size) - var(--toolbar-size));
+    overflow:         auto;
+
+    display:          flex;
+    flex-direction:   column;
+}
+
+.object-editor > .main > .sidebar > * {
+    width:     100%;
+    max-width: 100%;
+}
+
+.object-editor > .main > .sidebar > .sidebar-toolbar {
+    flex-grow:        0;
+    flex-shrink:      0;
+    flex-basis:       var(--toolbar-size);
+    max-height:       var(--toolbar-size);
+    outline:          1px solid var(--tools-outline);
+}
+
+.object-editor > .main > .sidebar > .sidebar-content {
+    flex-grow:        1;
+    flex-shrink:      1;
+    overflow:         auto;
+}
+
+
+.object-editor > .main > .separator {
+    flex-basis:       5px;
+    flex-grow:        0;
+    flex-shrink:      0;
+    background-color: var(--tools-outline);
+    order:            1;
+    cursor:           col-resize;
+    z-index:          0;
+}
+
+.object-editor > .main > .content {
+    flex-grow:        1;
+    flex-shrink:      1;
+    background-color: var(--tools-background);
+    order:            2;
+    position:         relative;
+    z-index:          0;
+}
+
+.object-editor > .main > .separator:hover  ~ *,
+.object-editor > .main > .separator:active ~ * {
+    pointer-events:      none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select:     none; /* IE 10 and IE 11 */
+    user-select:         none; /* Standard syntax */
+}
+
+
+.object-editor > .main > .content > * {
+    position: absolute;
+}
+
+.object-editor > .main > .content > .editor-canvas {
+    width:   100%;
+    height:  100%;
+    z-index: 0;
+}
+
+.object-editor > .main > .content > .editor-canvas ~ * {
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.tree-branch {
+    height: 2em;
+}
+
+.tree-branch:hover {
+    background-color: #555555;
+}
+
+
+.object-editor button,
+.object-editor input,
+.object-editor select {
+    font-size: 16px;
+    line-height: 16px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: var(--tools-outline);
+    color: white;
+}
+
+.object-editor button {
+    cursor: pointer;
+}
+
+
+

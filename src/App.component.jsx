@@ -2,6 +2,8 @@ import React from "react";
 
 import { createBrowserRouter, Outlet, RouterProvider, Link } from "react-router-dom";
 
+// import ObjectEditor   from "./ObjectEditor/editor.jsx";
+
 import CommonRenderer from "./common/CommonRenderer";
 import CommonScene    from "./common/CommonScene";
 import CommonCamera   from "./common/CommonCamera";
@@ -22,10 +24,12 @@ import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExam
 
 import MouseEventsExample          from "examples/mouse/MouseEventsExamples.jsx";
 import DragAndDropExample          from "examples/mouse/DragAndDropExample.jsx";
+import HoverExample                from "examples/mouse/HoverExample.jsx";
 
 import PointsGeometryExample       from "examples/geometries/PointsGeometryExample.jsx";
 import LineGeometryExample         from "examples/geometries/LineGeometryExample.jsx";
 import LineSegmentsGeometryExample from "examples/geometries/LineSegmentsGeometryExample.jsx";
+import TrianglesGeometryExample    from "examples/geometries/TrianglesGeometryExample.jsx";
 
 import GroupExample                from "examples/GroupExample.jsx";
 
@@ -35,35 +39,46 @@ export default function App(){
     return <>
         
         <RouterProvider router={createBrowserRouter([
-            
+            // { path: "/object-editor", element: <ObjectEditor /> },
             { path: "/", element: <Layout navigation={<>
 
-                Renderer
-                    <Link to="/"                     > Home                   </Link>
-                    <hr></hr>
-                    <Link to="/OrbitsRenderer"       > OrbitsRenderer         </Link>
-                    <hr></hr>
-                    <Link to="/OrbitsScene"          > OrbitsScene            </Link>
-                    <hr></hr>
-                    <Link to="/PerspectiveCamera"    > Perspective Camera     </Link>
-                    <Link to="/OrthographicCamera"   > Orthographic Camera    </Link>
-                    <Link to="/ArrayCamera"          > Array Camera           </Link>
-                    <Link to="/MouseLock"            > Mouse Lock             </Link>
-                    <hr></hr>
-                    <Link to="/Mesh"                 > Mesh                   </Link>
-                    <Link to="/MeshLoader"           > Mesh Loader            </Link>
-                    <Link to="/MeshLoaderAnimated"   > Mesh Loader (Animated) </Link>
-                    <hr></hr>
-                    <Link to="/MouseEvents"          > Mouse Events           </Link>
-                    <Link to="/DragAndDrop"          > Drag and Drop          </Link>
 
+                    <Link to="/"                     > Home                  </Link>
+                    <hr></hr>
+                   
+                Renderer
+                   <Link to="/OrbitsRenderer"       > OrbitsRenderer         </Link>
+                   <hr></hr>
+
+                Scene
+                   <Link to="/OrbitsScene"          > OrbitsScene            </Link>
+                   <hr></hr>
+                
+                Camera
+                   <Link to="/PerspectiveCamera"    > Perspective Camera     </Link>
+                   <Link to="/OrthographicCamera"   > Orthographic Camera    </Link>
+                   <Link to="/ArrayCamera"          > Array Camera           </Link>
+                   <Link to="/MouseLock"            > Mouse Lock             </Link>
+                   <hr></hr>
+
+                Objects
+                   <Link to="/Mesh"                 > Mesh                   </Link>
+                   <Link to="/MeshLoader"           > Mesh Loader            </Link>
+                   <Link to="/MeshLoaderAnimated"   > Mesh Loader (Animated) </Link>
+                   <Link to="/Group"                > Group                  </Link>
+                    <hr></hr>
+
+                Mouse
+                   <Link to="/MouseEvents"          > Mouse Events           </Link>
+                   <Link to="/DragAndDrop"          > Drag and Drop          </Link>
+                   <Link to="/Hover"                > Hover                  </Link>
+
+                Geometries
                     <hr></hr>
                     <Link to="/PointsGeometry"       > Points                 </Link>
                     <Link to="/LineGeometry"         > Line                   </Link>
                     <Link to="/LineSegmentsGeometry" > Line Segments          </Link>
-
-                    <hr></hr>
-                    <Link to="/Group"                > Group                  </Link>
+                    <Link to="/TrianglesGeometry"    > Triangles              </Link>
 
                 <hr />
             
@@ -83,10 +98,12 @@ export default function App(){
 
                 "/MouseEvents":          <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample          }) } />,
                 "/DragAndDrop":          <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample          }) } />,
+                "/Hover":                <Combine { ...defaults({ name: "HoverExample",              Content:  HoverExample                }) } />,
 
                 "/PointsGeometry":       <Combine { ...defaults({ name: "PointsGeometryExample",     Content:  PointsGeometryExample       }) } />,
                 "/LineGeometry":         <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample         }) } />,
                 "/LineSegmentsGeometry": <Combine { ...defaults({ name: "LineSegmentsGeometry",      Content:  LineSegmentsGeometryExample }) } />,
+                "/TrianglesGeometry":    <Combine { ...defaults({ name: "TrianglesGeometry",         Content:  TrianglesGeometryExample    }) } />,
 
                 "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
             })}
