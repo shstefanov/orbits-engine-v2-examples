@@ -6,6 +6,7 @@ const trianglesMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
 const coloredMaterial = new THREE.MeshBasicMaterial( { vertexColors: true } );
 const coloredTransparentMaterial = new THREE.MeshBasicMaterial( { vertexColors: true, transparent: true } );
 
+
 export default function TrianglesGeometryExample(){
 
     const [ showMaterialOnly, setShowMaterialOnly ] = useState(true);
@@ -29,12 +30,13 @@ export default function TrianglesGeometryExample(){
     }, [showRGBAColors]);
 
     return <>
-        
+       
         {/* Just material */}
         { showMaterialOnly && <Triangles
             // points format is: [ {x:0,y:0,z:1},{x,y,z},{x,y,z},  {x,y,z},{x,y,z},{x,y,z}, ... ]
             points   = {materialPoints}
             material = { trianglesMaterial }
+            interactive onClick={ () => console.log("Click Regular Triangles")}
         />}
 
         {/* With RGB colors */}
@@ -45,6 +47,7 @@ export default function TrianglesGeometryExample(){
             rgbColors = {rgbColors}
             // material need to be with option: { vertexColors: true }
             material = { coloredMaterial }
+            interactive onClick={ () => console.log("Click Color Triangles")}
         />}
 
         {/* With RGBA colors */}
@@ -55,6 +58,7 @@ export default function TrianglesGeometryExample(){
             rgbaColors = {rgbaColors}
             // material need to be with option: { vertexColors: true, transparent: true }
             material = { coloredTransparentMaterial }
+            interactive onClick={ () => console.log("Click Transparent Triangles")}
         />}
 
         <h1>Triangles Geometry</h1>

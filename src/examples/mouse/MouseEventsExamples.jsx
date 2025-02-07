@@ -34,10 +34,10 @@ const defaultState = {
 
 export default function MouseEventsExample(){
 
-    const [ yellowState, setYellowState ] = useState({ ...defaultState, name: "Yellow", color: "#ffff00" });
-    const [ redState,    setRedState    ] = useState({ ...defaultState, name: "Red",    color: "#ff0000" });
-    const [ blueState,   setBlueState   ] = useState({ ...defaultState, name: "Blue",   color: "#0000ff" });
-    const [ greenState,  setGreenState  ] = useState({ ...defaultState, name: "Green",  color: "#00ff00" });
+    const [ yellowState, setYellowState ] = useState({ ...defaultState, name: "Yellow", color: "#ffff00", interactive: true });
+    const [ redState,    setRedState    ] = useState({ ...defaultState, name: "Red",    color: "#ff0000", interactive: true });
+    const [ blueState,   setBlueState   ] = useState({ ...defaultState, name: "Blue",   color: "#0000ff", interactive: true });
+    const [ greenState,  setGreenState  ] = useState({ ...defaultState, name: "Green",  color: "#00ff00", interactive: true });
 
     function createUpdateAttributes(state, setter){
         return {
@@ -47,6 +47,8 @@ export default function MouseEventsExample(){
 
             // e.stopPropagation stops eventhandlers of parent objects from being triggered
             // In threejs hierarchy event will bubble up to the scene, then in DOM tree
+            name: state.name,
+            interactive: state.interactive,
 
             onMouseMove:   e => { !state.bubbling && e.stopPropagation(); setter({...state, mousemove:  ++state.mousemove    })},
             onMouseOver:   e => { !state.bubbling && e.stopPropagation(); setter({...state, mouseover:  ++state.mouseover    })},
@@ -76,7 +78,6 @@ export default function MouseEventsExample(){
         <Mesh
             geometry = { bigBoxGeometry }
             material = { yellowMaterial }
-            interactive
             dropzone="zone-1"
             { ...createUpdateAttributes(yellowState, setYellowState) }
         >
@@ -85,7 +86,6 @@ export default function MouseEventsExample(){
                 geometry = { smallBoxGeometry }
                 material = { redMaterial      }
                 position = {{ x: 15, y: 0, z: 0 }}
-                interactive
                 draggable="zone-1"
                 { ...createUpdateAttributes(redState, setRedState) }
             />
@@ -94,7 +94,6 @@ export default function MouseEventsExample(){
                 geometry = { smallBoxGeometry }
                 material = { blueMaterial     }
                 position = {{ x: 0, y: 0, z: 15 }}
-                interactive
                 { ...createUpdateAttributes(blueState, setBlueState) }
             />
 
@@ -104,7 +103,6 @@ export default function MouseEventsExample(){
             geometry = { smallBoxGeometry }
             material = { greenMaterial    }
             position = {{ x: 0, y: 50, z: 0 }}
-            interactive
             draggable="zone-1"
             { ...createUpdateAttributes(greenState, setGreenState) }
         />
@@ -134,6 +132,11 @@ export default function MouseEventsExample(){
                         type="checkbox"
                         checked={state.bubbling}
                         onChange={ e => setter({...state, bubbling: e.target.checked })}
+                    /> </p>
+                    <p> Interactive: <input
+                        type="checkbox"
+                        checked={state.interactive}
+                        onChange={ e => setter({...state, interactive: e.target.checked })}
                     /> </p>
                 </div>})}
         </div>
