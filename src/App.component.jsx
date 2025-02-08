@@ -37,6 +37,8 @@ import TrianglesGeometryExample    from "examples/geometries/TrianglesGeometryEx
 import GroupExample                from "examples/GroupExample.jsx";
 import MaterialExample             from "examples/MaterialExample.jsx";
 
+import TransitionExample           from "examples/transitions/TransitionExample.jsx";
+import TimerExample                from "examples/transitions/TimerExample.jsx";
 
 import Playground                  from "./Playground.jsx";
 
@@ -84,6 +86,10 @@ export default function App(){
                     <Link to="/LineGeometry"         > Line                   </Link>
                     <Link to="/LineSegmentsGeometry" > Line Segments          </Link>
                     <Link to="/TrianglesGeometry"    > Triangles              </Link>
+                
+                <br /><hr /> Transitions <hr />
+                    <Link to="/Transition"           > Transition             </Link>
+                    <Link to="/Timer"                > Timer                  </Link>
 
                 <br /><hr /> Materials <hr />
                     <Link to="/Material"             > Material               </Link>
@@ -118,8 +124,11 @@ export default function App(){
                 "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
                 "/Material":             <Combine { ...defaults({ name: "Material",                  Content:  MaterialExample             }) } />,
 
+                "/Transition":           <Combine { ...defaults({ name: "Transition",                Content:  TransitionExample           }) } />,
+                "/Timer":                <Combine { ...defaults({ name: "Timer",                     Content:  TimerExample                }) } />,
 
-                "/Playground":           <Combine { ...defaults({ name: "Material",                  Content:  Playground                  }) } />,
+
+                "/Playground":           <Combine { ...defaults({ name: "Playground",                Content:  Playground                  }) } />,
             })}
         ])} />
         
