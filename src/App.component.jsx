@@ -33,6 +33,32 @@ import PointsGeometryExample       from "examples/geometries/PointsGeometryExamp
 import LineGeometryExample         from "examples/geometries/LineGeometryExample.jsx";
 import LineSegmentsGeometryExample from "examples/geometries/LineSegmentsGeometryExample.jsx";
 import TrianglesGeometryExample    from "examples/geometries/TrianglesGeometryExample.jsx";
+import BoxGeometryExample          from "examples/geometries/BoxGeometryExample.jsx";
+import CapsuleGeometryExample      from "examples/geometries/CapsuleGeometryExample.jsx";
+import SphereGeometryExample       from "examples/geometries/SphereGeometryExample.jsx";
+
+import CircleGeometryExample       from "examples/geometries/CircleGeometryExample.jsx";
+import RingGeometryExample         from "examples/geometries/RingGeometryExample.jsx";
+import PlaneGeometryExample        from "examples/geometries/PlaneGeometryExample.jsx";
+import ShapeGeometryExample        from "examples/geometries/ShapeGeometryExample.jsx";
+
+import ConeGeometryExample         from "examples/geometries/ConeGeometryExample.jsx";
+import CylinderGeometryExample     from "examples/geometries/CylinderGeometryExample.jsx";
+import TorusGeometryExample        from "examples/geometries/TorusGeometryExample.jsx";
+import TorusKnotGeometryExample    from "examples/geometries/TorusKnotGeometryExample.jsx";
+import DodecahedronGeometryExample from "examples/geometries/DodecahedronGeometryExample.jsx";
+import IcosahedronGeometryExample  from "examples/geometries/IcosahedronGeometryExample.jsx";
+import OctahedronGeometryExample   from "examples/geometries/OctahedronGeometryExample.jsx";
+import TetrahedronGeometryExample  from "examples/geometries/TetrahedronGeometryExample.jsx";
+
+import TubeGeometryExample         from "examples/geometries/TubeGeometryExample.jsx";
+import ExtrudeGeometryExample      from "examples/geometries/ExtrudeGeometryExample.jsx";
+import LatheGeometryExample        from "examples/geometries/LatheGeometryExample.jsx";
+import PolyhedronGeometryExample   from "examples/geometries/PolyhedronGeometryExample.jsx";
+
+import BufferGeometryExample       from "examples/geometries/BufferGeometryExample.jsx";
+
+
 
 import GroupExample                from "examples/GroupExample.jsx";
 import MaterialExample             from "examples/MaterialExample.jsx";
@@ -52,7 +78,7 @@ export default function App(){
             { path: "/", element: <Layout navigation={<>
 
 
-                    <Link to="/"                     > Home                  </Link>
+                   <Link to="/"                     > Home                  </Link>
                    
                 <br /><hr /> Renderer <hr />
                    <Link to="/OrbitsRenderer"       > OrbitsRenderer         </Link>
@@ -83,10 +109,38 @@ export default function App(){
 
                 <br /><hr /> Geometries <hr />
                     <Link to="/PointsGeometry"       > Points                 </Link>
+                    
                     <Link to="/LineGeometry"         > Line                   </Link>
                     <Link to="/LineSegmentsGeometry" > Line Segments          </Link>
+                    
                     <Link to="/TrianglesGeometry"    > Triangles              </Link>
-                
+                    <Link to="/PlaneGeometry"        > PlaneGeometry          </Link>
+                    <Link to="/CircleGeometry"       > CircleGeometry         </Link>
+                    <Link to="/RingGeometry"         > RingGeometry           </Link>
+                    <Link to="/ShapeGeometry"        > ShapeGeometry          </Link>
+                    
+                    <Link to="/BoxGeometry"          > BoxGeometry            </Link>
+                    <Link to="/CapsuleGeometry"      > CapsuleGeometry        </Link>
+                    <Link to="/ConeGeometry"         > ConeGeometry           </Link>
+                    <Link to="/CylinderGeometry"     > CylinderGeometry       </Link>
+                    <Link to="/TorusGeometry"        > TorusGeometry          </Link>
+                    <Link to="/TorusKnotGeometry"    > TorusKnotGeometry      </Link>
+                    <Link to="/SphereGeometry"       > SphereGeometry         </Link>
+
+                    <Link to="/DodecahedronGeometry" > DodecahedronGeometry   </Link>
+                    <Link to="/IcosahedronGeometry"  > IcosahedronGeometry    </Link>
+                    <Link to="/OctahedronGeometry"   > OctahedronGeometry     </Link>
+                    <Link to="/TetrahedronGeometry"  > TetrahedronGeometry    </Link>
+
+                    <Link to="/LatheGeometry"        > LatheGeometry          </Link>
+                    <Link to="/PolyhedronGeometry"   > PolyhedronGeometry     </Link>
+                    <Link to="/ExtrudeGeometry"      > ExtrudeGeometry        </Link>
+                    <Link to="/TubeGeometry"         > TubeGeometry           </Link>
+
+                    <Link to="/BufferGeometry"       > BufferGeometry         </Link>
+
+
+
                 <br /><hr /> Transitions <hr />
                     <Link to="/Transition"           > Transition             </Link>
                     <Link to="/Timer"                > Timer                  </Link>
@@ -120,6 +174,32 @@ export default function App(){
                 "/LineGeometry":         <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample         }) } />,
                 "/LineSegmentsGeometry": <Combine { ...defaults({ name: "LineSegmentsGeometry",      Content:  LineSegmentsGeometryExample }) } />,
                 "/TrianglesGeometry":    <Combine { ...defaults({ name: "TrianglesGeometry",         Content:  TrianglesGeometryExample    }) } />,
+
+                "/CircleGeometry":       <Combine { ...defaults({ name: "CircleGeometry",            Content:  CircleGeometryExample       }) } />,
+                "/RingGeometry":         <Combine { ...defaults({ name: "RingGeometry",              Content:  RingGeometryExample         }) } />,
+                "/PlaneGeometry":        <Combine { ...defaults({ name: "PlaneGeometry",             Content:  PlaneGeometryExample        }) } />,
+                "/ShapeGeometry":        <Combine { ...defaults({ name: "ShapeGeometry",             Content:  ShapeGeometryExample        }) } />,
+
+                "/BoxGeometry":          <Combine { ...defaults({ name: "BoxGeometry",               Content:  BoxGeometryExample          }) } />,
+                "/CapsuleGeometry":      <Combine { ...defaults({ name: "CapsuleGeometry",           Content:  CapsuleGeometryExample      }) } />,
+                "/SphereGeometry":       <Combine { ...defaults({ name: "SphereGeometry",            Content:  SphereGeometryExample       }) } />,
+                "/TorusGeometry":        <Combine { ...defaults({ name: "TorusGeometry",             Content:  TorusGeometryExample        }) } />,
+                "/TorusKnotGeometry":    <Combine { ...defaults({ name: "TorusKnotGeometry",         Content:  TorusKnotGeometryExample    }) } />,
+
+                "/ConeGeometry":         <Combine { ...defaults({ name: "ConeGeometry",              Content:  ConeGeometryExample         }) } />,
+                "/CylinderGeometry":     <Combine { ...defaults({ name: "CylinderGeometry",          Content:  CylinderGeometryExample     }) } />,
+                "/DodecahedronGeometry": <Combine { ...defaults({ name: "DodecahedronGeometry",      Content:  DodecahedronGeometryExample }) } />,
+                "/IcosahedronGeometry":  <Combine { ...defaults({ name: "IcosahedronGeometry",       Content:  IcosahedronGeometryExample  }) } />,
+                "/OctahedronGeometry":   <Combine { ...defaults({ name: "OctahedronGeometry",        Content:  OctahedronGeometryExample   }) } />,
+                "/TetrahedronGeometry":  <Combine { ...defaults({ name: "TetrahedronGeometry",       Content:  TetrahedronGeometryExample  }) } />,
+                
+                "/ExtrudeGeometry":      <Combine { ...defaults({ name: "ExtrudeGeometry",           Content:  ExtrudeGeometryExample      }) } />,
+                "/TubeGeometry":         <Combine { ...defaults({ name: "TubeGeometry",              Content:  TubeGeometryExample         }) } />,
+                "/LatheGeometry":        <Combine { ...defaults({ name: "LatheGeometry",             Content:  LatheGeometryExample        }) } />,
+                "/PolyhedronGeometry":   <Combine { ...defaults({ name: "PolyhedronGeometry",        Content:  PolyhedronGeometryExample   }) } />,
+
+                "/BufferGeometry":       <Combine { ...defaults({ name: "BufferGeometry",            Content:  BufferGeometryExample       }) } />,
+
 
                 "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
                 "/Material":             <Combine { ...defaults({ name: "Material",                  Content:  MaterialExample             }) } />,

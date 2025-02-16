@@ -15,7 +15,7 @@ export default function HoverExample(){
         { /* 3D components */ }
         <Mesh
             geometry = { bigBoxGeometry }
-            material = { bigBoxMaterial }
+            material = { bigBoxMaterial.clone() }
             position = {{ x: -50, y: 0, z: 0 }}
             interactive
             hover = {
@@ -28,7 +28,33 @@ export default function HoverExample(){
         >
         </Mesh>
 
+        <Mesh
+            geometry = { bigBoxGeometry }
+            material = { bigBoxMaterial.clone() }
+            position = {{ x: 0, y: 0, z: 0 }}
+            interactive
+            hover = {{
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.5
+            }}
+        >
+        </Mesh>
 
+        <Mesh
+            geometry = { bigBoxGeometry }
+            material = { Object.assign(bigBoxMaterial.clone(), { transparent: true }) }
+            position = {{ x: 50, y: 0, z: 0 }}
+            interactive
+            hover = {{
+                transition: 300,
+                color: 0xffffff,
+                opacity: 0.5,
+            }}
+        >
+        </Mesh>
+
+0
         { /* HTML components */ }
         <h1>Hover</h1>
 
