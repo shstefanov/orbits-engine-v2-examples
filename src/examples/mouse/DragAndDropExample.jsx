@@ -38,26 +38,26 @@ export default function DragAndDropExample(){
         
         id: "drag-" + index,
         object_index: index,
-        dragtrough: true,
+        dragthrough:  true,
 
         position: draggable_positions[index],
         
-        // onDrag:            e => log("onDrag ",            index ),
+        // onDrag:             e => log("onDrag ",             index ),
         onDragStart:       e => { e.preventDefault(); log("onDragStart ",       index )},
-        // onDragStop:        e => log("onDragStop ",        index ),
-        // onDragTroughStart: e => log("onDragTroughStart ", index ),
-        // onDragTroughEnd:   e => log("onDragTroughEnd ",   index ),
-        // onDragTrough:      e => log("onDragTrough ",      index ),
-        // onDragOverStart:   e => log("onDragOverStart ",   index ),
-        // onDragOverEnd:     e => log("onDragOverEnd ",     index ),
-        // onDragOver:        e => log("onDragOver ",        index ),
-        // onDrop:            e => log("onDrop ",            index ),
+        // onDragStop:         e => log("onDragStop ",         index ),
+        // onDragThroughStart: e => log("onDragThroughStart ", index ),
+        // onDragThroughEnd:   e => log("onDragThroughEnd ",   index ),
+        // onDragThrough:      e => log("onDragThrough ",      index ),
+        // onDragOverStart:    e => log("onDragOverStart ",    index ),
+        // onDragOverEnd:      e => log("onDragOverEnd ",      index ),
+        // onDragOver:         e => log("onDragOver ",         index ),
+        // onDrop:             e => log("onDrop ",             index ),
 
     });
 
     const dropZoneProps = name => ({
         id: "drop-" + name,
-        dragtrough:        true,
+        dragthrough:        true,
         // onDrop:            e => log(`onDrop            [${name}]`, e ),
         onDragOver:        e => {
             const index = e.dragTarget.intersection.object.userData.object_index;
@@ -66,11 +66,11 @@ export default function DragAndDropExample(){
             setPositions([...draggable_positions]);
             
         },
-        // onDragOverStart:   e => log(`onDragOverStart   [${name}]`, e ),
-        // onDragOverEnd:     e => log(`onDragOverEnd     [${name}]`, e ),
-        // onDragTrough:      e => log(`onDragTrough      [${name}]`, e ),
-        // onDragTroughStart: e => log(`onDragTroughStart [${name}]`, e ),
-        // onDragTroughEnd:   e => log(`onDragTroughEnd   [${name}]`, e ),
+        // onDragOverStart:    e => log(`onDragOverStart   [${name}]`, e ),
+        // onDragOverEnd:      e => log(`onDragOverEnd     [${name}]`, e ),
+        // onDragThrough:      e => log(`onDragThrough      [${name}]`, e ),
+        // onDragThroughStart: e => log(`onDragThroughStart [${name}]`, e ),
+        // onDragThroughEnd:   e => log(`onDragThroughEnd   [${name}]`, e ),
     })
 
     return <>

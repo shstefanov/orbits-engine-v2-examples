@@ -10,4 +10,9 @@ export function input(label, options, value, setter){
         step={options.range[2]}
         onChange={e => setter(options.type === "float" ? parseFloat(e.target.value) : parseInt(e.target.value))}
     /></>;
+    if(options.color)    return <>{label}: <input
+        type="color"
+        value={value}
+        onChange={e => setter(e.target.value)}
+    /></>;
 }

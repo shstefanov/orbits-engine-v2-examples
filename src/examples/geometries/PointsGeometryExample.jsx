@@ -19,7 +19,7 @@ function randPoints(from, to){
     return result;
 }
 
-export default function LineGeometryExample(){
+export default function PointsGeometryExample(){
 
     const [ points, setPoints ] = useState(randPoints(10, 30));
 

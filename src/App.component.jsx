@@ -13,6 +13,7 @@ import Homepage                    from "examples/Homepage.jsx";
 import OrbitsRendererExample       from "examples/OrbitsRendererExample.jsx";
 import OrbitsSceneExample          from "examples/OrbitsSceneExample.jsx";
 import OverlayExample              from "examples/OverlayExample.jsx";
+import LayersExample               from "examples/LayersExample.jsx";
 
 import PerspectiveCameraExample    from "examples/cameras/PerspectiveCameraExample.jsx";
 import OrthographicCameraExample   from "examples/cameras/OrthographicCameraExample.jsx";
@@ -23,15 +24,24 @@ import MeshExample                 from "examples/objects/MeshExample.jsx";
 import MeshLoaderExample           from "examples/objects/MeshLoaderExample.jsx";
 import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExample.jsx";
 
+import AmbientLightExample         from "examples/lights/AmbientLightExample.jsx";
+import DirectionalLightExample     from "examples/lights/DirectionalLightExample.jsx";
+import HemisphereLightExample      from "examples/lights/HemiSphereLightExample.jsx";
+import PointlLightExample          from "examples/lights/PointlLightExample.jsx";
+import SpotLightExample            from "examples/lights/SpotLightExample.jsx";
+import RectAreaLightExample        from "examples/lights/RectAreaLightExample.jsx";
+
 import MouseEventsExample          from "examples/mouse/MouseEventsExamples.jsx";
 import DragAndDropExample          from "examples/mouse/DragAndDropExample.jsx";
 import HoverExample                from "examples/mouse/HoverExample.jsx";
 import CursorExample               from "examples/mouse/CursorExample.jsx";
+import TitleExample                from "examples/mouse/TitleExample.jsx";
 import HitBoxExample               from "examples/mouse/HitBoxExample.jsx";
 
 import PointsGeometryExample       from "examples/geometries/PointsGeometryExample.jsx";
 import LineGeometryExample         from "examples/geometries/LineGeometryExample.jsx";
 import LineSegmentsGeometryExample from "examples/geometries/LineSegmentsGeometryExample.jsx";
+import SpriteGeometryExample       from "examples/geometries/SpriteGeometryExample.jsx";
 import TrianglesGeometryExample    from "examples/geometries/TrianglesGeometryExample.jsx";
 import BoxGeometryExample          from "examples/geometries/BoxGeometryExample.jsx";
 import CapsuleGeometryExample      from "examples/geometries/CapsuleGeometryExample.jsx";
@@ -66,7 +76,7 @@ import MaterialExample             from "examples/MaterialExample.jsx";
 import TransitionExample           from "examples/transitions/TransitionExample.jsx";
 import TimerExample                from "examples/transitions/TimerExample.jsx";
 
-import Playground                  from "./Playground.jsx";
+import Playground                  from "./PlaygroundComponent.jsx";
 
 import Layout from "./Layout.jsx";
 
@@ -87,6 +97,7 @@ export default function App(){
                 <br /><hr /> Scene <hr />
                    <Link to="/OrbitsScene"          > OrbitsScene            </Link>
                    <Link to="/Overlay"              > Overlay                </Link>
+                   <Link to="/Layers"               > Layers                 </Link>
                 
                 <br /><hr /> Camera <hr />
                    <Link to="/PerspectiveCamera"    > Perspective Camera     </Link>
@@ -100,11 +111,20 @@ export default function App(){
                    <Link to="/MeshLoaderAnimated"   > Mesh Loader (Animated) </Link>
                    <Link to="/Group"                > Group                  </Link>
 
+                <br /><hr /> Lights <hr />
+                   <Link to="/AmbientLight"        > AmbientLight           </Link>
+                   <Link to="/DirectionalLight"    > DirectionalLight       </Link>
+                   <Link to="/HemisphereLight"     > HemisphereLight        </Link>
+                   <Link to="/PointlLight"         > PointlLight            </Link>
+                   <Link to="/SpotLight"           > SpotLight              </Link>
+                   <Link to="/RectAreaLight"       > RectAreaLight          </Link>
+
                 <br /><hr /> Mouse <hr />
                    <Link to="/MouseEvents"          > Mouse Events           </Link>
                    <Link to="/DragAndDrop"          > Drag and Drop          </Link>
                    <Link to="/Hover"                > Hover                  </Link>
                    <Link to="/Cursor"               > Cursor                 </Link>
+                   <Link to="/Title"                > Title                  </Link>
                    <Link to="/HitBox"               > HitBox                 </Link>
 
                 <br /><hr /> Geometries <hr />
@@ -112,6 +132,7 @@ export default function App(){
                     
                     <Link to="/LineGeometry"         > Line                   </Link>
                     <Link to="/LineSegmentsGeometry" > Line Segments          </Link>
+                    <Link to="/SpriteGeometry"       > Sprite                 </Link>
                     
                     <Link to="/TrianglesGeometry"    > Triangles              </Link>
                     <Link to="/PlaneGeometry"        > PlaneGeometry          </Link>
@@ -153,6 +174,7 @@ export default function App(){
                 "/OrbitsRenderer":       <Combine { ...defaults({ name: "OrbitsRendererExample",     Renderer: OrbitsRendererExample       }) } />,
                 "/OrbitsScene":          <Combine { ...defaults({ name: "OrbitsSceneExample",        Scene:    OrbitsSceneExample          }) } />,
                 "/Overlay":              <Combine { ...defaults({ name: "OverlayExample",            Content:  OverlayExample              }) } />,
+                "/Layers":               <Combine { ...defaults({ name: "LayersExample",             Content:  LayersExample               }) } />,
                 
                 "/PerspectiveCamera":    <Combine { ...defaults({ name: "PerspectiveCameraExample",  Camera:   PerspectiveCameraExample    }) } />,
                 "/OrthographicCamera":   <Combine { ...defaults({ name: "OrthographicCameraExample", Camera:   OrthographicCameraExample   }) } />,
@@ -162,17 +184,29 @@ export default function App(){
                 "/Mesh":                 <Combine { ...defaults({ name: "MeshExample",               Content:  MeshExample                 }) } />,
                 "/MeshLoader":           <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample           }) } />,
                 "/MeshLoaderAnimated":   <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample   }) } />,
+                "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
+
+                "/AmbientLight":         <Combine { ...defaults({ name: "AmbientLight",              Content:  AmbientLightExample         }) } lights={false}/>,
+                "/DirectionalLight":     <Combine { ...defaults({ name: "DirectionalLight",          Content:  DirectionalLightExample     }) } lights={false}/>,
+                "/HemisphereLight":      <Combine { ...defaults({ name: "HemisphereLight",           Content:  HemisphereLightExample      }) } lights={false}/>,
+                "/PointlLight":          <Combine { ...defaults({ name: "PointlLight",               Content:  PointlLightExample          }) } lights={false}/>,
+                "/SpotLight":            <Combine { ...defaults({ name: "SpotLight",                 Content:  SpotLightExample            }) } lights={false}/>,
+                "/RectAreaLight":        <Combine { ...defaults({ name: "RectAreaLight",             Content:  RectAreaLightExample        }) } lights={false}/>,
+
+
 
                 "/MouseEvents":          <Combine { ...defaults({ name: "MouseEventsExample",        Content:  MouseEventsExample          }) } />,
                 "/DragAndDrop":          <Combine { ...defaults({ name: "DragAndDropExample",        Content:  DragAndDropExample          }) } />,
                 "/Hover":                <Combine { ...defaults({ name: "HoverExample",              Content:  HoverExample                }) } />,
                 "/Cursor":               <Combine { ...defaults({ name: "CursorExample",             Content:  CursorExample               }) } />,
+                "/Title":                <Combine { ...defaults({ name: "TitleExample",              Content:  TitleExample                }) } />,
                 "/HitBox":               <Combine { ...defaults({ name: "HitBoxExample",             Content:  HitBoxExample               }) } />,
 
 
                 "/PointsGeometry":       <Combine { ...defaults({ name: "PointsGeometryExample",     Content:  PointsGeometryExample       }) } />,
                 "/LineGeometry":         <Combine { ...defaults({ name: "LineGeometryExample",       Content:  LineGeometryExample         }) } />,
                 "/LineSegmentsGeometry": <Combine { ...defaults({ name: "LineSegmentsGeometry",      Content:  LineSegmentsGeometryExample }) } />,
+                "/SpriteGeometry":       <Combine { ...defaults({ name: "SpriteGeometry",            Content:  SpriteGeometryExample       }) } />,
                 "/TrianglesGeometry":    <Combine { ...defaults({ name: "TrianglesGeometry",         Content:  TrianglesGeometryExample    }) } />,
 
                 "/CircleGeometry":       <Combine { ...defaults({ name: "CircleGeometry",            Content:  CircleGeometryExample       }) } />,
@@ -201,7 +235,7 @@ export default function App(){
                 "/BufferGeometry":       <Combine { ...defaults({ name: "BufferGeometry",            Content:  BufferGeometryExample       }) } />,
 
 
-                "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
+
                 "/Material":             <Combine { ...defaults({ name: "Material",                  Content:  MaterialExample             }) } />,
 
                 "/Transition":           <Combine { ...defaults({ name: "Transition",                Content:  TransitionExample           }) } />,
@@ -211,55 +245,7 @@ export default function App(){
                 "/Playground":           <Combine { ...defaults({ name: "Playground",                Content:  Playground                  }) } />,
             })}
         ])} />
-        
-        
-        
-        
-        
-        
-        {false && <OrbitsRenderer
-            // size={{ width: 800, height: 600 }}
-            autoresize={true}
-            style={{
-                position:        "absolute",
-                right:           "0px",
-                width:           "calc(100% - 250px)",
-                height:          "100%",
-                backgroundColor: "black",
-                zIndex:          "-1",
-            }}
-        >
 
-            <div style={{
-                position: "absolute",
-                width:    "250px",
-                height:   "100%",
-                overflow: "visible",
-            }}>
-                <h1>Orbits Engine Examples App</h1>
-
-                <a className="source-code-link" href="/tralalalalala">&lt;SOURCE&gt;</a>
-
-
-
-
-                <OrbitsScene
-                    background={[
-                       '/textures/right.png',
-                       '/textures/left.png',
-                       '/textures/top.png',
-                       '/textures/bottom.png',
-                       '/textures/front.png',
-                       '/textures/back.png',
-                    ]}
-                >
-
-                </OrbitsScene>
-            </div>
-
-
-
-        </OrbitsRenderer>}
     </>
     
     
@@ -269,12 +255,12 @@ export default function App(){
 // Helpers
 function PassThrough({children}){ return children; }
 
-function Combine({name, Renderer=PassThrough, Scene=PassThrough, Content=PassThrough, Camera=PassThrough}){
+function Combine({ name, Renderer=PassThrough, Scene=PassThrough, Content=PassThrough, Camera=PassThrough, lights = true }){
     return <>
         {[
             <Renderer key={name}>
                 <Scene>
-                    <Camera></Camera>
+                    <Camera lights = { lights }></Camera>
                     <Content></Content>
                 </Scene> 
             </Renderer>]}
