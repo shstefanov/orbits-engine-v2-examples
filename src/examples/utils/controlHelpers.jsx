@@ -1,6 +1,6 @@
 import React from "react";
 
-export function input(label, options, value, setter){
+export function input(label, options, value, setter, style={}){
     if(options.checkbox) return <>{label}: <input type="checkbox" checked={value} onChange={e => setter(e.target.checked)}/></>;
     if(options.range)    return <>{label}: <input
         type="range"
@@ -9,6 +9,7 @@ export function input(label, options, value, setter){
         max={options.range[1]}
         step={options.range[2]}
         onChange={e => setter(options.type === "float" ? parseFloat(e.target.value) : parseInt(e.target.value))}
+        style={style}
     /></>;
     if(options.color)    return <>{label}: <input
         type="color"
