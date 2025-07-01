@@ -23,6 +23,9 @@ import MouseLockControlsExample    from "examples/cameras/MouseLockControlsExamp
 import MeshExample                 from "examples/objects/MeshExample.jsx";
 import MeshLoaderExample           from "examples/objects/MeshLoaderExample.jsx";
 import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExample.jsx";
+import InstancedMeshExample        from "examples/objects/InstancedMeshExample.jsx";
+import BatchedMeshExample          from "examples/objects/BatchedMeshExample.jsx";
+import InstancedMeshBufferExample  from "examples/objects/InstancedMeshBufferExample.jsx";
 
 import AmbientLightExample         from "examples/lights/AmbientLightExample.jsx";
 import DirectionalLightExample     from "examples/lights/DirectionalLightExample.jsx";
@@ -110,6 +113,9 @@ export default function App(){
                    <Link to="/MeshLoader"           > Mesh Loader            </Link>
                    <Link to="/MeshLoaderAnimated"   > Mesh Loader (Animated) </Link>
                    <Link to="/Group"                > Group                  </Link>
+                   <Link to="/InstancedMesh"        > InstancedMesh          </Link>
+                   <Link to="/InstancedMeshBuffer"  > InstancedMesh (buffer) </Link>
+                   <Link to="/BatchedMesh"          > BatchedMesh            </Link>
 
                 <br /><hr /> Lights <hr />
                    <Link to="/AmbientLight"        > AmbientLight           </Link>
@@ -185,6 +191,9 @@ export default function App(){
                 "/MeshLoader":           <Combine { ...defaults({ name: "MeshLoaderExample",         Content:  MeshLoaderExample           }) } />,
                 "/MeshLoaderAnimated":   <Combine { ...defaults({ name: "MeshLoaderAnimatedExample", Content:  MeshLoaderAnimatedExample   }) } />,
                 "/Group":                <Combine { ...defaults({ name: "Group",                     Content:  GroupExample                }) } />,
+                "/InstancedMesh":        <Combine { ...defaults({ name: "InstancedMesh",             Content:  InstancedMeshExample        }) } />,
+                "/InstancedMeshBuffer":  <Combine { ...defaults({ name: "InstancedMeshBuffer",       Content:  InstancedMeshBufferExample  }) } />,
+                "/BatchedMesh":          <Combine { ...defaults({ name: "BatchedMesh",               Content:  BatchedMeshExample          }) } />,
 
                 "/AmbientLight":         <Combine { ...defaults({ name: "AmbientLight",              Content:  AmbientLightExample         }) } lights={false}/>,
                 "/DirectionalLight":     <Combine { ...defaults({ name: "DirectionalLight",          Content:  DirectionalLightExample     }) } lights={false}/>,

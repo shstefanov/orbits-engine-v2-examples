@@ -2,34 +2,25 @@ import React, { useEffect, useState, useMemo } from "react";
 
 import { input } from "../examples/utils/controlHelpers.jsx";
 
-import { Mesh, BufferGeometry, MeshBasicMaterial } from "@orbits/engine";
+import { Mesh, BufferGeometry, MeshBasicMaterial, MeshNormalMaterial } from "@orbits/engine";
 
 // !!! Warning, Experiment !!! Imports module far outside project !!!
 import Grid from "../../../../lib/orbits-generator/src/lib/Grid";
 
-
+import * as THREE from "three";
 
 
 export default function VoxelTest(){
 
     const [ range, setRange ] = useState(1);
 
-
-
-
     return <>
 
-
-
         <Voxels
-
             position = {{ x: 0, y: 0, z: 0 }}
-
-            bounds   = {{ x: [-50, 50], y: [-50, 50], z: [-50, 50] }}
-
+            bounds   = {{ x: [-50, 50], y: [-50, 50], z: [-25, 25] }}
             cellSize = { 1 }
-
-            range = { range }
+            range    = { range }
         
         
         />
@@ -38,7 +29,7 @@ export default function VoxelTest(){
 
         <div className="controls-block">
             {/* <p> { input( "Wireframe",       { checkbox: true                          }, wireFrame,      setWireframe      ) } </p> */}
-            <p> { input( "Range",          { range: [ 1, 51 * 51 * 51,    1 ],   type: "int"   }, range,         setRange, {width: "900px"}         ) } </p>
+            <p> { input( "Range",          { range: [ 1, 101 * 101 * 51,    1 ],   type: "int"   }, range,         setRange, {width: "900px"}         ) } [{range}/{101 * 101 * 51}] </p>
         </div>
     
     </>;
@@ -97,50 +88,101 @@ function getIndices(offset){
 
 function Voxels({ position, cellSize, bounds, range }){
 
-    const { points, uv } = useMemo( () => {
+    const indices = useMemo( () => {
+        const i = [];
+        i.prev_range = 0; // inital;
+        return i;
+
+    }, []);
+
+    const { points, uv, normals } = useMemo( () => {
         const grid = new Grid({ bounds, wrap: [], gradient: [] });
         const halfSize = cellSize / 2;
-        grid.fill( (p, g) => createCellPoint(p, halfSize));
+        grid.fill( (p, g) => createCellPoints(p, halfSize));
 
 
 
 
         const points = grid.shape.flat();
+        const normals = [];
+        for(let item of grid.shape){
+            normals.push(...cellNormals);
+        }
 
-        // grid.fill( (p, g) => null); // Free the points
+        // Generate 12 uv sets for each frid.shape item
+
+        const uvmap_part = UVMAP.map( ({u, v}) => ({u: u / 2, v: v / 2 }));
+        const uv_map_offsets = [
+            { u: 0,  v: 0  }, // stone
+            { u: .5, v: 0  }, // dirt
+            { u: 0,  v: .5 }, // grass
+            { u: .5, v: .5 }, // sand
+        ];
+
+        // Create uvmap sets for all 4 types, each array with uv-s for each part of texture
+        uvmap_types = uv_map_offsets.map( type => {
+            return uvmap_part.map( ({u,v}) => ({u: u + type.u, v: v + type.v}) );
+        });
+
+
+        const uv = grid.shape.map( (p, i) => {
+
+            const rnd_index = Math.floor(Math.random() * uv_map_offsets.length);
+            const rnd_uvs = uvmap_types[rnd_index];
+            return rnd_uvs;
+
+            return UVMAP[i % UVMAP.length];
+        }).flat();
+
+        // setTimeout(() => {
+        //     points.splice();
+        //     normals.splice();
+        //     uv.splice();
+        // }, 1000 );
 
         return {
             points,
-            uv: points.map( (p, i) => {
-                return UVMAP[i % UVMAP.length];
-            })
+            normals,
+            uv,
         };
     }, []);
 
-    const indices = useMemo( () => {
-        const result = [];
-        for(let i = 0; i < range; i++) result.push(...getIndices(i))
-        return result;
+     useEffect( () => {
+        // const result = [];
+        // 32 indices per cube
+        let start = 0;
+
+        if(range < indices.prev_range){
+            indices.splice(range * 36);
+        }
+        else if(range > indices.prev_range){
+            for(let i = indices.prev_range; i < range; i++) {
+                indices.push(...getIndices(i));
+            }
+        }
+
+        indices.state = {};
+        indices.prev_range = range;
+
     }, [range]);
 
     return <Mesh position = { position } >
         <BufferGeometry
             position = { points  }
-            uv       = { uv      } 
+            normal   = { normals }
+            uv       = { uv      }
             indices  = { indices }
         />
-        <MeshBasicMaterial color = { 0xffffff } map="/textures/test.png" />
+        <MeshBasicMaterial map="/textures/4xtexture.png" />
     </Mesh>;
 
 }
 
 // Creating 8 points in order to keep UV consistent
 // Even if they are repeating
-function createCellPoint( { x, y, z }, hs ){
-
+function createCellPoints( { x, y, z }, hs ){
 
     // hs - half cell size
-
 
     const v2 = { x: x - hs, y: y + hs, z: z - hs }; // repeat 2
     const v4 = { x: x - hs, y: y - hs, z: z + hs }; // repeat 4
@@ -168,3 +210,29 @@ function createCellPoint( { x, y, z }, hs ){
 
     ];
 }
+
+
+
+const cellNormals = [
+    new THREE.Vector3(-1,-1,-1).normalize(),
+    new THREE.Vector3(1,-1,-1).normalize(),
+    new THREE.Vector3(-1,1,-1).normalize(),
+    new THREE.Vector3(1,1,-1).normalize(),
+    new THREE.Vector3(-1,-1,1).normalize(),
+    new THREE.Vector3(1,-1,1).normalize(),
+    new THREE.Vector3(-1,1,1).normalize(),
+    new THREE.Vector3(1,1,1).normalize(),
+    2,2,2,2
+].map( (v, i, arr) => {
+    if      (i === 8  ) v = arr[2];
+    else if (i === 9  ) v = arr[4];
+    else if (i === 10 ) v = arr[5];
+    else if (i === 11 ) v = arr[6];
+    else v.normalize();
+    return { x: v.x, y: v.y, z: v.z };
+});
+
+
+// function createCellNormals(){
+
+// }

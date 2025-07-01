@@ -6,7 +6,7 @@ export default function CommonCamera({children, lights = true}){
 
     const [ cameraProps, setCameraProps ] = useState({
         
-        zoom: 1.5, near: 1, far: 10000, fov: 35, up: { x: 0, y: 0, z: 1 },
+        zoom: 1.5, near: 0.1, far: 10000, fov: 35, up: { x: 0, y: 0, z: 1 },
 
         controlType: "orbit-controls",
             target:       { x:  0, y:  0, z: 0 }, // or follow: "my-character"
