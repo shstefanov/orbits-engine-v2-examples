@@ -26,6 +26,7 @@ import MeshLoaderAnimatedExample   from "examples/objects/MeshLoaderAnimatedExam
 import InstancedMeshExample        from "examples/objects/InstancedMeshExample.jsx";
 import BatchedMeshExample          from "examples/objects/BatchedMeshExample.jsx";
 import InstancedMeshBufferExample  from "examples/objects/InstancedMeshBufferExample.jsx";
+import SkinnedMeshExample          from "examples/objects/SkinnedMeshExample.jsx";
 
 import AmbientLightExample         from "examples/lights/AmbientLightExample.jsx";
 import DirectionalLightExample     from "examples/lights/DirectionalLightExample.jsx";
@@ -116,6 +117,7 @@ export default function App(){
                    <Link to="/InstancedMesh"        > InstancedMesh          </Link>
                    <Link to="/InstancedMeshBuffer"  > InstancedMesh (buffer) </Link>
                    <Link to="/BatchedMesh"          > BatchedMesh            </Link>
+                   <Link to="/SkinnedMesh"          > SkinnedMesh            </Link>
 
                 <br /><hr /> Lights <hr />
                    <Link to="/AmbientLight"        > AmbientLight           </Link>
@@ -194,6 +196,7 @@ export default function App(){
                 "/InstancedMesh":        <Combine { ...defaults({ name: "InstancedMesh",             Content:  InstancedMeshExample        }) } />,
                 "/InstancedMeshBuffer":  <Combine { ...defaults({ name: "InstancedMeshBuffer",       Content:  InstancedMeshBufferExample  }) } />,
                 "/BatchedMesh":          <Combine { ...defaults({ name: "BatchedMesh",               Content:  BatchedMeshExample          }) } />,
+                "/SkinnedMesh":          <Combine { ...defaults({ name: "SkinnedMesh",               Content:  SkinnedMeshExample          }) } />,
 
                 "/AmbientLight":         <Combine { ...defaults({ name: "AmbientLight",              Content:  AmbientLightExample         }) } lights={false}/>,
                 "/DirectionalLight":     <Combine { ...defaults({ name: "DirectionalLight",          Content:  DirectionalLightExample     }) } lights={false}/>,

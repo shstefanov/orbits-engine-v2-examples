@@ -47,7 +47,7 @@ export default function PointLightExample(){
                 { input( "Position X",   { range: [-100, 100, 0.01 ], type: "float" }, posX,  setPosX       ) }
                 { input( "Position Y",   { range: [-100, 100, 0.01 ], type: "float" }, posY,  setPosY       ) }
                 { input( "Position Z",   { range: [-100, 100, 0.01 ], type: "float" }, posZ,  setPosZ       ) }
-            </p>https://chefo-3101.cs.orbits.bg/PointlLight
+            </p>
             <p> { input( "Decay",        { range: [0, 10,   0.01 ], type: "float" }, decay,    setDecay    ) } </p>
             <p> { input( "Distance",     { range: [0, 200,  0.01 ], type: "float" }, distance, setDistance ) } </p>
             <p> { input( "Power",        { range: [0, 1000, 0.01 ], type: "float" }, power,    setPower    ) } </p>
