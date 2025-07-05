@@ -28,6 +28,8 @@ import BatchedMeshExample          from "examples/objects/BatchedMeshExample.jsx
 import InstancedMeshBufferExample  from "examples/objects/InstancedMeshBufferExample.jsx";
 import SkinnedMeshExample          from "examples/objects/SkinnedMeshExample.jsx";
 
+import AudioExample                from "examples/objects/AudioExample.jsx";
+
 import AmbientLightExample         from "examples/lights/AmbientLightExample.jsx";
 import DirectionalLightExample     from "examples/lights/DirectionalLightExample.jsx";
 import HemisphereLightExample      from "examples/lights/HemiSphereLightExample.jsx";
@@ -119,13 +121,16 @@ export default function App(){
                    <Link to="/BatchedMesh"          > BatchedMesh            </Link>
                    <Link to="/SkinnedMesh"          > SkinnedMesh            </Link>
 
+                <br /><hr /> Audio <hr />
+                   <Link to="/Audio"                > Audio                  </Link>
+                
                 <br /><hr /> Lights <hr />
-                   <Link to="/AmbientLight"        > AmbientLight           </Link>
-                   <Link to="/DirectionalLight"    > DirectionalLight       </Link>
-                   <Link to="/HemisphereLight"     > HemisphereLight        </Link>
-                   <Link to="/PointlLight"         > PointlLight            </Link>
-                   <Link to="/SpotLight"           > SpotLight              </Link>
-                   <Link to="/RectAreaLight"       > RectAreaLight          </Link>
+                   <Link to="/AmbientLight"        > AmbientLight            </Link>
+                   <Link to="/DirectionalLight"    > DirectionalLight        </Link>
+                   <Link to="/HemisphereLight"     > HemisphereLight         </Link>
+                   <Link to="/PointlLight"         > PointlLight             </Link>
+                   <Link to="/SpotLight"           > SpotLight               </Link>
+                   <Link to="/RectAreaLight"       > RectAreaLight           </Link>
 
                 <br /><hr /> Mouse <hr />
                    <Link to="/MouseEvents"          > Mouse Events           </Link>
@@ -197,6 +202,8 @@ export default function App(){
                 "/InstancedMeshBuffer":  <Combine { ...defaults({ name: "InstancedMeshBuffer",       Content:  InstancedMeshBufferExample  }) } />,
                 "/BatchedMesh":          <Combine { ...defaults({ name: "BatchedMesh",               Content:  BatchedMeshExample          }) } />,
                 "/SkinnedMesh":          <Combine { ...defaults({ name: "SkinnedMesh",               Content:  SkinnedMeshExample          }) } />,
+
+                "/Audio":                <Combine { ...defaults({ name: "Audio",                     Content:  AudioExample                }) } />,
 
                 "/AmbientLight":         <Combine { ...defaults({ name: "AmbientLight",              Content:  AmbientLightExample         }) } lights={false}/>,
                 "/DirectionalLight":     <Combine { ...defaults({ name: "DirectionalLight",          Content:  DirectionalLightExample     }) } lights={false}/>,
