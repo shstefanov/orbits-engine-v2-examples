@@ -76,7 +76,7 @@ export default function MeshLoaderExample(){
         <h1> Mesh Loader </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/MeshLoaderExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/objects/MeshLoaderExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;

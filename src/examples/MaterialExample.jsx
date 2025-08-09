@@ -26,7 +26,7 @@ export default function MaterialExample(){
         <h1>Material Attributes</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/MaterialExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/objects/MaterialExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

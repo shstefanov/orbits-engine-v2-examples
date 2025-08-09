@@ -29,6 +29,7 @@ import InstancedMeshBufferExample  from "examples/objects/InstancedMeshBufferExa
 import SkinnedMeshExample          from "examples/objects/SkinnedMeshExample.jsx";
 
 import AudioExample                from "examples/objects/AudioExample.jsx";
+import PositionalAudioExample      from "examples/objects/PositionalAudioExample.jsx";
 
 import AmbientLightExample         from "examples/lights/AmbientLightExample.jsx";
 import DirectionalLightExample     from "examples/lights/DirectionalLightExample.jsx";
@@ -123,6 +124,7 @@ export default function App(){
 
                 <br /><hr /> Audio <hr />
                    <Link to="/Audio"                > Audio                  </Link>
+                   <Link to="/PositionalAudio"      > PositionalAudio & hover effect </Link>
                 
                 <br /><hr /> Lights <hr />
                    <Link to="/AmbientLight"        > AmbientLight            </Link>
@@ -204,6 +206,7 @@ export default function App(){
                 "/SkinnedMesh":          <Combine { ...defaults({ name: "SkinnedMesh",               Content:  SkinnedMeshExample          }) } />,
 
                 "/Audio":                <Combine { ...defaults({ name: "Audio",                     Content:  AudioExample                }) } />,
+                "/PositionalAudio":      <Combine { ...defaults({ name: "PositionalAudio",           Content:  PositionalAudioExample      }) } />,
 
                 "/AmbientLight":         <Combine { ...defaults({ name: "AmbientLight",              Content:  AmbientLightExample         }) } lights={false}/>,
                 "/DirectionalLight":     <Combine { ...defaults({ name: "DirectionalLight",          Content:  DirectionalLightExample     }) } lights={false}/>,

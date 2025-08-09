@@ -31,7 +31,7 @@ export default function AudioExample(){
         <h1>Audio</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/AudioExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/objects/AudioExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

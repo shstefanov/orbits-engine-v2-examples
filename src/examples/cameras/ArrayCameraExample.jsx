@@ -18,7 +18,7 @@ export default function ArrayCameraExample({children}){
         zoom: 1.5, near: 1, far: 10000, fov: 35, up: { x: 0, y: 0, z: 1 },
 
         controlType: "orbit-controls",
-            target:       { x:  0, y:  0, z: 0 }, // or follow: "my-character"
+            target:       { x:  0, y:  0, z: 0 },
             distance:     500,
             polarAngle:   0,
             azimuthAngle: 0,
@@ -29,12 +29,7 @@ export default function ArrayCameraExample({children}){
 
     const cp = cameraProps;
 
-    return <ArrayCamera
-        
-        // {...cp}
-
-        // onUpdate = { (props, camera) => setCameraProps(props) }
-    >
+    return <ArrayCamera>
 
         <PerspectiveCamera 
             { ...cp } 
@@ -68,7 +63,7 @@ export default function ArrayCameraExample({children}){
         <h1>ArrayCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/ArrayCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/cameras/ArrayCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

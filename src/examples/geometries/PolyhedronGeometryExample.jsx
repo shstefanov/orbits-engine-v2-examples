@@ -35,7 +35,7 @@ export default function PolyhedronGeometryExample(){
         <h1>PolyhedronGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/PolyhedronGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/geometries/PolyhedronGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

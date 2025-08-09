@@ -35,7 +35,7 @@ export default function PointLightExample(){
         <h1> PointLight </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/lights/PointLightExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/lights/PointLightExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

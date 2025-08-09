@@ -21,7 +21,7 @@ export default function AmbientLightExample(){
         <h1> AmbientLight </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/lights/AmbientLightExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/lights/AmbientLightExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

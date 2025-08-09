@@ -23,7 +23,7 @@ export default function OctahedronGeometryExample(){
         <h1>OctahedronGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/OctahedronGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/geometries/OctahedronGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

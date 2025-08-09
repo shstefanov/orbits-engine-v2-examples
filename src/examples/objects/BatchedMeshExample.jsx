@@ -65,7 +65,7 @@ export default function BatchedMeshExample(){
         <h1>BatchedMesh</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/BatchedMeshExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/objects/BatchedMeshExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

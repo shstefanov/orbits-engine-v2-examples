@@ -6,15 +6,10 @@ export default function OrthographicCameraExample({children}){
 
     const [ cameraProps, setCameraProps ] = useState({
         
-        // left:  (window.innerWidth - 200) / -2,
-        // right: (window.innerWidth - 200) /  2,
-        // top:   (window.innerHeight     ) /  2,
-        // right: (window.innerHeight     ) / -2,
         zoom: 1, near: 0.1, far: 10000, up: { x: 0, y: 0, z: -1 },
 
         controlType: "orbit-controls",
-            target:       { x:  0, y:  0, z: 0 }, // or follow: "my-character"
-            // distance:     500,
+            target:       { x:  0, y:  0, z: 0 },
             polarAngle:   0,
             azimuthAngle: 0,
             rotateSpeed:  1,
@@ -23,7 +18,8 @@ export default function OrthographicCameraExample({children}){
     })
 
     return <OrthographicCamera
-        { ...cameraProps }
+        
+    { ...cameraProps }
 
         onUpdate = { (props, camera) => setCameraProps(props) }
     >
@@ -31,10 +27,8 @@ export default function OrthographicCameraExample({children}){
         <h1>OrthographicCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/OrthographicCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/cameras/OrthographicCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
-
-
 
 
         <div className="controls-block">
@@ -56,12 +50,6 @@ export default function OrthographicCameraExample({children}){
                     setCameraProps({...cameraProps, azimuthAngle: parseFloat(e.target.value)});
                 }} />
             </p>
-
-            {/* <p> Distance:
-                <input type="range" min="100" max="1000" step="1" value={cameraProps.distance} onChange={ e => {
-                    setCameraProps({...cameraProps, distance: parseInt(e.target.value)});
-                }} />
-            </p> */}
 
             <p> Target: 
                 x: <input type="range" min="-100" max="100" step="1" value={cameraProps.target.x} onChange={ e => {

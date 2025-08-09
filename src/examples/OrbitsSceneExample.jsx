@@ -20,7 +20,7 @@ export default function OrbitsSceneExample({children}){
         <h1>Orbits Scene</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/OrbitsSceneExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/OrbitsSceneExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

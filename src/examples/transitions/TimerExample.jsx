@@ -52,7 +52,7 @@ export default function TimerExample(){
         <h1>Timer</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/transitions/TimerExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/transitions/TimerExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

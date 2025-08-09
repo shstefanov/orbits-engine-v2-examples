@@ -20,14 +20,11 @@ export default function BoxGeometryExample(){
             <BoxGeometry size = {[ width, height, depth ]} segments = {[ widthSegments, heightSegments, depthSegments ]} />
             <MeshBasicMaterial color={0xffffff} wireframe={wireFrame} />
         </Mesh>
-    
-    
-    
 
         <h1>BoxGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/BoxGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/geometries/BoxGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

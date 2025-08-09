@@ -40,15 +40,12 @@ export default function MouseLockControlsExample({children}){
         };
     }, []);
 
-
-
-
     return <PerspectiveCamera
         zoom = { 1.5 }
         near = { 1 }
         far  = { 10000 }
         fov  = { 35 }
-        up   = { {x: 0, y: 0, z: 1} }
+        up   = {{ x: 0, y: 0, z: 1 }}
 
         controlType = "mouse-lock"
         // maxPolarAngle = { Math.PI /  4 }
@@ -58,22 +55,21 @@ export default function MouseLockControlsExample({children}){
         moveForward   = { forward - backward }
         moveRight     = { right - left }
 
-        position = {position}
-        rotation = {rotation}
+        position      = {position}
+        rotation      = {rotation}
 
-
-        onLock   = { (camera) => { console.log("LOCK");   } }
-        onUnlock = { (camera) => { console.log("UNLOCK"); } }
-        onChange = { (event, camera) => {
-            setRotation({x: camera.rotation._x, y: camera.rotation._y, z: camera.rotation._z, order: camera.rotation._order });
-            setPosiotion({...camera.position});
+        onLock        = { (camera) => { console.log("LOCK");   } }
+        onUnlock      = { (camera) => { console.log("UNLOCK"); } }
+        onChange      = { (event, camera) => {
+            setRotation({ x: camera.rotation._x, y: camera.rotation._y, z: camera.rotation._z, order: camera.rotation._order });
+            setPosiotion({ ...camera.position });
         }}
     >
 
         <h1>Mouse Lock</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/MouseLockControlsExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/cameras/MouseLockControlsExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </PerspectiveCamera>;

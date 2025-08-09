@@ -23,7 +23,7 @@ export default function MouseEventsExample(){
         <h1>Group</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/GroupExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/tree/blob/main/src/examples/GroupExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;
