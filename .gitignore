@@ -1,3 +1,6 @@
 node_modules
 links.txt
-public
+public/*.css
+public/*.css.map
+public/*.js
+public/*.js.map
