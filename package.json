@@ -14,7 +14,7 @@
     "links": "npm link $(cat links.txt) || echo No local projects to link"
   },
   "dependencies": {
-    "@orbits/engine": "git+https://github.com/shstefanov/orbits-engine.git#draft-v2",
+    "@orbits/engine": "^2.0.0",
     "combine-section-reducers": "^1.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
