@@ -1,0 +1,33 @@
+/* Navigation Band Styling */
+
+.navigation {
+    background-color: black;
+    color: #fff;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: inherit;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.navigation a:hover {
+    background-color: #555;
+}
+
+.navigation hr {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: none;
+    height: 1px;
+    background-color: #666;
+}
+
+.navigation br {
+    display: none;
+}
+
