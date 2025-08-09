@@ -5,6 +5,7 @@
   "scripts": {
     "esbuild-loaders": "echo --loader:.html=copy --loader:.svg=dataurl --loader:.png=dataurl --loader:.jpg=dataurl --loader:.cur=dataurl --loader:.ani=dataurl --loader:.ttf=dataurl",
     "start-dev": "esbuild --preserve-symlinks $(find ./src -name *.entry.*) ./src/index.html $(npm run esbuild-loaders | tail -n 1) --watch --bundle --sourcemap --outdir=./public",
+    "build": "esbuild --preserve-symlinks $(find ./src -name *.entry.*) ./src/index.html $(npm run esbuild-loaders | tail -n 1) --bundle --minify --outdir=./public",
     "show-entries": "echo Entrypoints: && find ./src -name *.entry.*",
     "start": "npm-run-all --parallel serve start-dev",
     "prestart": "touch ./src/node_modules && rm ./src/node_modules && ln -s $(pwd)/src ./src/node_modules && npm run show-entries",
