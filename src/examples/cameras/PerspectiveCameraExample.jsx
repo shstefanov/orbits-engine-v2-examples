@@ -9,7 +9,7 @@ export default function PerspectiveCameraExample({children}){
         zoom: 1.5, near: 1, far: 10000, fov: 35, up: { x: 0, y: 0, z: 1 },
 
         controlType: "orbit-controls",
-            target:       { x:  0, y:  0, z: 0 }, // or follow: "my-character"
+            target:       { x:  0, y:  0, z: 0 },
             distance:     500,
             polarAngle:   0,
             azimuthAngle: 0,
@@ -27,7 +27,7 @@ export default function PerspectiveCameraExample({children}){
         <h1>PerspectiveCamera</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/cameras/PerspectiveCameraExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/cameras/PerspectiveCameraExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

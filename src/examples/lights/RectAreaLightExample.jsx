@@ -37,7 +37,7 @@ export default function RectAreaLightExample(){
         <h1> RectAreaLight </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/lights/RectAreaLightExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/lights/RectAreaLightExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

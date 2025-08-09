@@ -346,7 +346,7 @@ export default function BufferGeometryExample(){
 
                 // customValues = {[ 1.2, 1.3, 1.4, 1.5 ]}
             />
-            <MeshBasicMaterial color={0xffffff} wireframe={wireFrame} />
+            <MeshBasicMaterial color = { 0xffffff } wireframe = { wireFrame } />
         </Mesh>
     
     
@@ -355,7 +355,7 @@ export default function BufferGeometryExample(){
         <h1>BufferGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/BufferGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/BufferGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

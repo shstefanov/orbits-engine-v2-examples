@@ -96,7 +96,7 @@ export default function ExtrudeGeometryExample(){
         <h1>ExtrudeGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/ExtrudeGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/ExtrudeGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

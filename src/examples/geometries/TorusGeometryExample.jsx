@@ -33,7 +33,7 @@ export default function TorusGeometryExample(){
         <h1>TorusGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/TorusGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/TorusGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

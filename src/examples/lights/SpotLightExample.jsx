@@ -41,7 +41,7 @@ export default function SpotLightExample(){
         <h1> SpotLight </h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/lights/SpotLightExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/lights/SpotLightExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

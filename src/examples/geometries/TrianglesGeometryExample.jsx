@@ -64,7 +64,7 @@ export default function TrianglesGeometryExample(){
         <h1>Triangles Geometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/TrianglesGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/TrianglesGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

@@ -39,7 +39,7 @@ export default function ShapeGeometryExample(){
         <h1>ShapeGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/ShapeGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/ShapeGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

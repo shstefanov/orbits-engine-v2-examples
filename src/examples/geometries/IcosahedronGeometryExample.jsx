@@ -23,7 +23,7 @@ export default function IcosahedronGeometryExample(){
         <h1>IcosahedronGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/IcosahedronGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/IcosahedronGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

@@ -17,7 +17,7 @@ export default function CapsuleGeometryExample(){
     
         <Mesh>
             <CapsuleGeometry radius = { radius } length = { length } capSegments = { capSegments } radialSegments = { radialSegments } />
-            <MeshBasicMaterial color={0xffffff} wireframe={wireFrame} />
+            <MeshBasicMaterial color = { 0xffffff } wireframe = { wireFrame } />
         </Mesh>
     
     
@@ -26,7 +26,7 @@ export default function CapsuleGeometryExample(){
         <h1>CapsuleGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/CapsuleGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/CapsuleGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

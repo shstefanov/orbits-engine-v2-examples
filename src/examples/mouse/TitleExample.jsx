@@ -24,7 +24,7 @@ export default function TitleExample(){
         <h1>Title</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/mouse/TitleExamples.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/mouse/TitleExamples.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;

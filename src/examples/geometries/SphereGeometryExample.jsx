@@ -35,7 +35,7 @@ export default function SphereGeometryExample(){
         <h1>SphereGeometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/SphereGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/SphereGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         <div className="controls-block">

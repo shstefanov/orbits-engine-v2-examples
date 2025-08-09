@@ -39,7 +39,7 @@ export default function InstancedMeshBufferExample(){
         <h1>InstancedMesh (with InstanceBuffer)</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/objects/InstancedMesBufferhExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/objects/InstancedMesBufferhExample.jsx"
         > &lt;SOURCE&gt; </a>
 
 

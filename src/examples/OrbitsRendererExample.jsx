@@ -40,7 +40,7 @@ export default function OrbitsRendererExample({children, hideChildren}){
         <h1>Orbits Renderer</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/OrbitsRendererExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/OrbitsRendererExample.jsx"
         > &lt;SOURCE&gt; </a>
 
         {

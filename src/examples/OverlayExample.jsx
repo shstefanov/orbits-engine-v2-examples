@@ -22,7 +22,7 @@ export default function OverlayExample(){
         <h1>Mesh</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/OverlayExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/OverlayExample.jsx"
         > &lt; SOURCE &gt; </a>
 
         <div className="controls-block">

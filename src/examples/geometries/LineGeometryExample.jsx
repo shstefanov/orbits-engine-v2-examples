@@ -36,7 +36,7 @@ export default function LineGeometryExample(){
         <h1>Line Geometry</h1>
 
         <a className="source-code-link"
-            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/development/src/examples/geometries/LineGeometryExample.jsx"
+            href="https://github.com/shstefanov/orbits-engine-v2-examples/blob/main/src/examples/geometries/LineGeometryExample.jsx"
         > &lt;SOURCE&gt; </a>
 
     </>;
