@@ -4,3 +4,5 @@ public/*.css
 public/*.css.map
 public/*.js
 public/*.js.map
+.aider*
+.instruct
